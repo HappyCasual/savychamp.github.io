@@ -8,6 +8,7 @@
     <style>
         :root {
             --primary-color: #0056b3;
+            --primary-hover: #004494;
             --text-main: #2c3e50;
             --text-muted: #6c757d;
             --bg-color: #f8f9fa;
@@ -115,7 +116,13 @@
         .app-card p {
             color: #4a5568;
             flex-grow: 1;
-            margin-bottom: 0;
+            margin-bottom: 25px;
+        }
+
+        .badge-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
         }
 
         .badge {
@@ -124,10 +131,8 @@
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 600;
-            margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            align-self: flex-start;
         }
 
         .badge-game {
@@ -138,6 +143,43 @@
         .badge-utility {
             background-color: #e8f5e9;
             color: #2e7d32;
+        }
+
+        .badge-upcoming {
+            background-color: #fff3e0;
+            color: #e65100;
+        }
+
+        .btn {
+            display: inline-block;
+            text-align: center;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            margin-top: auto; /* Pushes button to the bottom of the card */
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            color: #ffffff;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 86, 179, 0.2);
+        }
+
+        .btn-disabled {
+            background-color: #e9ecef;
+            color: #6c757d;
+            cursor: not-allowed;
+            border: 1px solid #ced4da;
         }
 
         footer { 
@@ -190,21 +232,49 @@
     <div class="app-grid">
         
         <div class="app-card">
-            <span class="badge badge-game">Mobile Game</span>
-            <h3>Jig Cards: Multi Art Puzzle</h3>
+            <div class="badge-container">
+                <span class="badge badge-game">Mobile Game</span>
+            </div>
+            <h3>Jig Cards: Multi Art Jigsaw</h3>
             <p>A premium jigsaw puzzle experience designed for relaxation and mental clarity. This title features beautiful, hand-crafted art styles, including intricate wood carving aesthetics and satisfying claymation visuals. Perfect for unwinding after a long day.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.happycasualcompany.jiggytiles" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get it on Google Play</a>
         </div>
 
         <div class="app-card">
-            <span class="badge badge-game">Mobile Game</span>
-            <h3>Arrows Paint ASMR</h3>
-            <p>A highly satisfying puzzle game focusing on path-finding logic and ASMR visual effects. Challenge your brain by painting the board through carefully calculated directional movements. Designed with smooth animations to provide a calming yet stimulating experience.</p>
+            <div class="badge-container">
+                <span class="badge badge-game">Mobile Game</span>
+            </div>
+            <h3>Emoji Sentence: Brain Puzzle</h3>
+            <p>Decode fun emoji combinations to form words and sentences! A delightful brain-teasing puzzle game that challenges your creativity and vocabulary in a visually appealing and satisfying way.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.happycasualcompany.emojiwords" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get it on Google Play</a>
         </div>
 
         <div class="app-card">
-            <span class="badge badge-utility">Utility App</span>
+            <div class="badge-container">
+                <span class="badge badge-game">Mobile Game</span>
+            </div>
+            <h3>Love Merge: Heart Puzzle</h3>
+            <p>Immerse yourself in this cute, heart-themed merge puzzle game. Combine matching elements to progress through increasingly complex boards. Features adorable UI elements and relaxing gameplay mechanics.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.happycasualcompany.lovemerge" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get it on Google Play</a>
+        </div>
+
+        <div class="app-card">
+            <div class="badge-container">
+                <span class="badge badge-utility">Utility App</span>
+            </div>
             <h3>Tamcall - Tambola/Housie Caller</h3>
             <p>The ultimate utility application for Tambola and Housie enthusiasts. Tamcall acts as a smart, automated number caller, making hosting game nights effortless and organized for families and large groups alike.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.happycasualcompany.tambolacaller" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get it on Google Play</a>
+        </div>
+
+        <div class="app-card">
+            <div class="badge-container">
+                <span class="badge badge-game">Mobile Game</span>
+                <span class="badge badge-upcoming">Upcoming</span>
+            </div>
+            <h3>Arrows Paint ASMR</h3>
+            <p>A highly satisfying puzzle game focusing on path-finding logic and ASMR visual effects. Challenge your brain by painting the board through carefully calculated directional movements. Designed with smooth animations to provide a calming yet stimulating experience.</p>
+            <span class="btn btn-disabled">Coming Soon</span>
         </div>
 
     </div>

@@ -8,7 +8,6 @@
     <style>
         :root {
             --primary-color: #0056b3;
-            --primary-hover: #004494;
             --text-main: #2c3e50;
             --text-muted: #6c757d;
             --bg-color: #f8f9fa;
@@ -31,26 +30,40 @@
             padding: 20px; 
         }
 
+        /* Updated Header Layout */
         header { 
-            padding: 50px 20px; 
+            display: flex;
+            align-items: center;
+            padding: 40px 30px; 
             background: var(--card-bg); 
-            text-align: center; 
             border-radius: var(--border-radius); 
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+        }
+
+        .logo-container {
+            flex: 1;
+            display: flex;
+            justify-content: flex-start;
         }
 
         .logo {
-            max-width: 200px;
+            max-width: 140px;
             height: auto;
-            margin-bottom: 20px;
             display: block;
-            margin-left: auto;
-            margin-right: auto;
+        }
+
+        .header-text {
+            flex: 2;
+            text-align: center;
+        }
+
+        .header-spacer {
+            flex: 1; /* Balances the layout to perfectly center the text */
         }
 
         h1 { 
-            margin: 0 0 10px 0; 
+            margin: 0 0 5px 0; 
             color: #1a1a1a; 
             font-size: 2.5rem;
             font-weight: 700;
@@ -59,8 +72,7 @@
         .subtitle {
             color: var(--text-muted);
             font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
+            margin: 0;
         }
 
         h2 { 
@@ -71,11 +83,16 @@
             padding-bottom: 10px;
         }
 
+        /* Adjusted Section Spacing */
+        .portfolio-section {
+            margin-bottom: 60px;
+        }
+
         .about-section { 
             background: var(--card-bg); 
             padding: 40px; 
             border-radius: var(--border-radius); 
-            margin-bottom: 50px; 
+            margin-bottom: 30px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
@@ -83,6 +100,10 @@
             color: #4a5568;
             font-size: 1.05rem;
             margin-bottom: 15px;
+        }
+
+        .about-section p:last-child {
+            margin-bottom: 0;
         }
 
         .app-grid { 
@@ -116,13 +137,7 @@
         .app-card p {
             color: #4a5568;
             flex-grow: 1;
-            margin-bottom: 25px;
-        }
-
-        .badge-container {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 0;
         }
 
         .badge {
@@ -131,8 +146,10 @@
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 600;
+            margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            align-self: flex-start;
         }
 
         .badge-game {
@@ -145,45 +162,8 @@
             color: #2e7d32;
         }
 
-        .badge-upcoming {
-            background-color: #fff3e0;
-            color: #e65100;
-        }
-
-        .btn {
-            display: inline-block;
-            text-align: center;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            margin-top: auto; /* Pushes button to the bottom of the card */
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: #ffffff;
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-hover);
-            color: #ffffff;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0, 86, 179, 0.2);
-        }
-
-        .btn-disabled {
-            background-color: #e9ecef;
-            color: #6c757d;
-            cursor: not-allowed;
-            border: 1px solid #ced4da;
-        }
-
         footer { 
-            margin-top: 60px; 
+            margin-top: 40px; 
             padding: 30px 20px; 
             font-size: 0.95em; 
             color: var(--text-muted); 
@@ -204,8 +184,19 @@
             color: #003d82;
         }
 
-        @media (max-width: 600px) {
-            header { padding: 40px 15px; }
+        /* Responsive adjustments for mobile */
+        @media (max-width: 768px) {
+            header { 
+                flex-direction: column;
+                padding: 30px 20px; 
+            }
+            .logo-container {
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            .header-spacer {
+                display: none; /* Hide the spacer on mobile */
+            }
             h1 { font-size: 2rem; }
             .about-section { padding: 25px; }
         }
@@ -216,68 +207,45 @@
 <body>
 
 <header>
-    <img src="logo.png" alt="SavyChamp Logo" class="logo">
-    <h1>SavyChamp</h1>
-    <p class="subtitle">Innovative, relaxing mobile experiences.</p>
+    <div class="logo-container">
+        <img src="logo.png" alt="SavyChamp Logo" class="logo">
+    </div>
+    <div class="header-text">
+        <h1>SavyChamp</h1>
+        <p class="subtitle">Innovative, relaxing mobile experiences.</p>
+    </div>
+    <div class="header-spacer"></div>
 </header>
+
+<section class="portfolio-section">
+    <h2>Our Apps</h2>
+    <div class="app-grid">
+        
+        <div class="app-card">
+            <span class="badge badge-game">Mobile Game</span>
+            <h3>Jig Cards: Multi Art Puzzle</h3>
+            <p>A premium jigsaw puzzle experience designed for relaxation and mental clarity. This title features beautiful, hand-crafted art styles, including intricate wood carving aesthetics and satisfying claymation visuals. Perfect for unwinding after a long day.</p>
+        </div>
+
+        <div class="app-card">
+            <span class="badge badge-game">Mobile Game</span>
+            <h3>Arrows Paint ASMR</h3>
+            <p>A highly satisfying puzzle game focusing on path-finding logic and ASMR visual effects. Challenge your brain by painting the board through carefully calculated directional movements. Designed with smooth animations to provide a calming yet stimulating experience.</p>
+        </div>
+
+        <div class="app-card">
+            <span class="badge badge-utility">Utility App</span>
+            <h3>Tamcall - Tambola/Housie Caller</h3>
+            <p>The ultimate utility application for Tambola and Housie enthusiasts. Tamcall acts as a smart, automated number caller, making hosting game nights effortless and organized for families and large groups alike.</p>
+        </div>
+
+    </div>
+</section>
 
 <section class="about-section">
     <h2>About the Developer</h2>
     <p>Welcome to SavyChamp! I am an independent solo developer passionate about crafting highly engaging, visually pleasing 2D mobile apps and games.</p>
     <p>A core philosophy of my development process is accessibility. Every title is rigorously optimized to ensure smooth, lag-free performance across a wide spectrum of mobile hardware, allowing users with low-end devices to enjoy premium digital experiences without compromise. From intricate UI designs in our puzzle games to automated utility tools, every project is built with care, logic, and a focus on user satisfaction.</p>
-</section>
-
-<section>
-    <h2>Our Portfolio</h2>
-    <div class="app-grid">
-        
-        <div class="app-card">
-            <div class="badge-container">
-                <span class="badge badge-game">Mobile Game</span>
-            </div>
-            <h3>Jig Cards: Multi Art Jigsaw</h3>
-            <p>A premium jigsaw puzzle experience designed for relaxation and mental clarity. This title features beautiful, hand-crafted art styles, including intricate wood carving aesthetics and satisfying claymation visuals. Perfect for unwinding after a long day.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.happycasualcompany.jiggytiles" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get it on Google Play</a>
-        </div>
-
-        <div class="app-card">
-            <div class="badge-container">
-                <span class="badge badge-game">Mobile Game</span>
-            </div>
-            <h3>Emoji Sentence: Brain Puzzle</h3>
-            <p>Decode fun emoji combinations to form words and sentences! A delightful brain-teasing puzzle game that challenges your creativity and vocabulary in a visually appealing and satisfying way.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.happycasualcompany.emojiwords" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get it on Google Play</a>
-        </div>
-
-        <div class="app-card">
-            <div class="badge-container">
-                <span class="badge badge-game">Mobile Game</span>
-            </div>
-            <h3>Love Merge: Heart Puzzle</h3>
-            <p>Immerse yourself in this cute, heart-themed merge puzzle game. Combine matching elements to progress through increasingly complex boards. Features adorable UI elements and relaxing gameplay mechanics.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.happycasualcompany.lovemerge" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get it on Google Play</a>
-        </div>
-
-        <div class="app-card">
-            <div class="badge-container">
-                <span class="badge badge-utility">Utility App</span>
-            </div>
-            <h3>Tamcall - Tambola/Housie Caller</h3>
-            <p>The ultimate utility application for Tambola and Housie enthusiasts. Tamcall acts as a smart, automated number caller, making hosting game nights effortless and organized for families and large groups alike.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.happycasualcompany.tambolacaller" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get it on Google Play</a>
-        </div>
-
-        <div class="app-card">
-            <div class="badge-container">
-                <span class="badge badge-game">Mobile Game</span>
-                <span class="badge badge-upcoming">Upcoming</span>
-            </div>
-            <h3>Arrows Paint ASMR</h3>
-            <p>A highly satisfying puzzle game focusing on path-finding logic and ASMR visual effects. Challenge your brain by painting the board through carefully calculated directional movements. Designed with smooth animations to provide a calming yet stimulating experience.</p>
-            <span class="btn btn-disabled">Coming Soon</span>
-        </div>
-
-    </div>
 </section>
 
 <footer>

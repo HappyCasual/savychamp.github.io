@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SavyChamp</title>
+    <title>SavyChamp Studio</title>
     
     <style>
         :root {
@@ -59,6 +59,25 @@
 
         .header-spacer {
             flex: 1; 
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* NEW NAVIGATION MENU STYLES */
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-item {
+            font-weight: 600;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .nav-item:hover {
+            color: var(--primary-color);
         }
 
         h1 { 
@@ -181,18 +200,6 @@
             text-decoration: none;
         }
 
-        .upcoming-btn {
-            background-color: #e2e8f0;
-            color: var(--text-muted);
-            cursor: default;
-            pointer-events: none;
-        }
-
-        .upcoming-btn:hover {
-            background-color: #e2e8f0;
-            color: var(--text-muted);
-        }
-
         footer { 
             margin-top: 40px; 
             padding: 30px 20px; 
@@ -225,7 +232,8 @@
                 margin-bottom: 20px;
             }
             .header-spacer {
-                display: none; 
+                justify-content: center;
+                margin-top: 20px;
             }
             h1 { font-size: 2rem; }
             .about-section { padding: 25px; }
@@ -244,7 +252,12 @@
         <h1>SavyChamp</h1>
         <p class="subtitle">Innovative, relaxing mobile experiences.</p>
     </div>
-    <div class="header-spacer"></div>
+    <div class="header-spacer">
+        <nav class="nav-menu">
+            <a href="about.html" class="nav-item">About Us</a>
+            <a href="blog.html" class="nav-item">Devlog</a>
+        </nav>
+    </div>
 </header>
 
 <section class="portfolio-section">
@@ -254,36 +267,36 @@
         <div class="app-card">
             <span class="badge badge-game">Mobile Game</span>
             <h3>Jig Cards: Multi Art Puzzle</h3>
-            <p>A premium jigsaw puzzle experience designed for relaxation and mental clarity. This title features beautiful, hand-crafted art styles, including intricate wood carving aesthetics and satisfying claymation visuals. Perfect for unwinding after a long day.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.happycasualcompany.jiggytiles" class="play-store-btn" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+            <p>A premium jigsaw puzzle experience designed for relaxation and mental clarity. This title features beautiful, hand-crafted art styles, including intricate wood carving aesthetics and satisfying claymation visuals.</p>
+            <a href="jig-cards.html" class="play-store-btn">View Details</a>
         </div>
 
         <div class="app-card">
             <span class="badge badge-game">Mobile Game</span>
             <h3>Emoji Sentence: Brain Puzzle</h3>
             <p>Test your logic and vocabulary in this clever word game. Decode fun combinations of emojis to reveal hidden sentences and phrases. It's a satisfying brain teaser designed to challenge players of all ages.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.happycasualcompany.emojiwords" class="play-store-btn" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+            <a href="emoji-sentence.html" class="play-store-btn">View Details</a>
         </div>
 
         <div class="app-card">
             <span class="badge badge-utility">Utility App</span>
             <h3>Tamcall - Tambola/Housie Caller</h3>
             <p>The ultimate utility application for Tambola and Housie enthusiasts. Tamcall acts as a smart, automated number caller, making hosting game nights effortless and organized for families and large groups alike.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.happycasualcompany.tambolacaller" class="play-store-btn" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+            <a href="tamcall.html" class="play-store-btn">View Details</a>
         </div>
 
         <div class="app-card">
             <span class="badge badge-game">Mobile Game</span>
             <h3>Love Merge</h3>
             <p>Immerse yourself in this cute, heart-themed merge puzzle game. Combine matching elements to progress through increasingly complex boards. Features adorable UI elements and relaxing gameplay mechanics.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.happycasualcompany.lovemerge" class="play-store-btn" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+            <a href="love-merge.html" class="play-store-btn">View Details</a>
         </div>
 
         <div class="app-card">
             <span class="badge badge-game">Mobile Game</span>
             <h3>Arrows Paint ASMR</h3>
-            <p>A highly satisfying puzzle game focusing on path-finding logic and ASMR visual effects. Challenge your brain by painting the board through carefully calculated directional movements. Designed with smooth animations to provide a calming yet stimulating experience.</p>
-            <span class="play-store-btn upcoming-btn">Upcoming Release</span>
+            <p>A highly satisfying puzzle game focusing on path-finding logic and ASMR visual effects. Challenge your brain by painting the board through carefully calculated directional movements.</p>
+            <a href="arrows-paint.html" class="play-store-btn">Learn More</a>
         </div>
 
     </div>
@@ -292,15 +305,17 @@
 <section class="about-section">
     <h2>About the Developer</h2>
     <p>Welcome to SavyChamp! I am an independent solo developer passionate about crafting highly engaging, visually pleasing 2D mobile apps and games.</p>
-    <p>A core philosophy of my development process is accessibility. Every title is rigorously optimized to ensure smooth, lag-free performance across a wide spectrum of mobile hardware, allowing users with low-end devices to enjoy premium digital experiences without compromise. From intricate UI designs in our puzzle games to automated utility tools, every project is built with care, logic, and a focus on user satisfaction.</p>
+    <p>A core philosophy of my development process is accessibility. Every title is rigorously optimized to ensure smooth, lag-free performance across a wide spectrum of mobile hardware, allowing users with low-end devices to enjoy premium digital experiences without compromise.</p>
+    <a href="about.html" class="play-store-btn" style="margin-top: 15px;">Read Our Full Story</a>
 </section>
 
 <footer>
     <p>&copy; 2026 SavyChamp</p>
     <p>
+        <a href="about.html">About</a> | 
+        <a href="blog.html">Blog</a> | 
         <a href="privacy-policy.html">Privacy Policy</a> | 
-        <a href="terms.html">Terms of Service</a> | 
-        <a href="mailto:contact@savychamp.com">contact@savychamp.com</a>
+        <a href="terms.html">Terms of Service</a>
     </p>
 </footer>
 

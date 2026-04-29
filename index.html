@@ -63,7 +63,6 @@
             justify-content: flex-end;
         }
 
-        /* NEW NAVIGATION MENU STYLES */
         .nav-menu {
             display: flex;
             gap: 20px;
@@ -91,6 +90,14 @@
             color: var(--text-muted);
             font-size: 1.1rem;
             margin: 0;
+            margin-bottom: 15px;
+        }
+
+        .welcome-text {
+            font-size: 1rem;
+            color: #4a5568;
+            max-width: 80%;
+            margin: 0 auto;
         }
 
         h2 { 
@@ -212,7 +219,7 @@
         footer a { 
             color: var(--primary-color); 
             text-decoration: none; 
-            margin: 0 12px; 
+            margin: 0 8px; 
             transition: var(--transition);
             font-weight: 500;
         }
@@ -237,6 +244,7 @@
             }
             h1 { font-size: 2rem; }
             .about-section { padding: 25px; }
+            .welcome-text { max-width: 100%; }
         }
     </style>
 
@@ -250,72 +258,75 @@
     </div>
     <div class="header-text">
         <h1>SavyChamp</h1>
-        <p class="subtitle">Innovative, relaxing mobile experiences.</p>
+        <p class="subtitle">Fun, relaxing, and simple mobile games.</p>
+        <p class="welcome-text">Welcome! We make games that help you unwind and challenge your brain without any stress. Feel free to explore our games and read our latest updates on our blog.</p>
     </div>
     <div class="header-spacer">
         <nav class="nav-menu">
             <a href="about.html" class="nav-item">About Us</a>
-            <a href="blog.html" class="nav-item">Devlog</a>
+            <a href="blog.html" class="nav-item">Our Blog</a>
         </nav>
     </div>
 </header>
 
 <section class="portfolio-section">
-    <h2>Our Apps</h2>
+    <h2>Games We Made For You</h2>
     <div class="app-grid">
         
         <div class="app-card">
-            <span class="badge badge-game">Mobile Game</span>
+            <span class="badge badge-game">Puzzle Game</span>
             <h3>Jig Cards: Multi Art Puzzle</h3>
-            <p>A premium jigsaw puzzle experience designed for relaxation and mental clarity. This title features beautiful, hand-crafted art styles, including intricate wood carving aesthetics and satisfying claymation visuals.</p>
-            <a href="jig-cards.html" class="play-store-btn">View Details</a>
+            <p>Do you love jigsaw puzzles? We do too! Jig Cards gives you beautiful puzzles right on your phone. There is no mess and no missing pieces—just pure relaxation with stunning art styles.</p>
+            <a href="jig-cards.html" class="play-store-btn">See Details</a>
         </div>
 
         <div class="app-card">
-            <span class="badge badge-game">Mobile Game</span>
+            <span class="badge badge-game">Brain Game</span>
             <h3>Emoji Sentence: Brain Puzzle</h3>
-            <p>Test your logic and vocabulary in this clever word game. Decode fun combinations of emojis to reveal hidden sentences and phrases. It's a satisfying brain teaser designed to challenge players of all ages.</p>
-            <a href="emoji-sentence.html" class="play-store-btn">View Details</a>
+            <p>Can you guess the hidden phrase just by looking at emojis? This fun and clever word game will test your logic. It is perfect for a quick mental workout when you have a few minutes of free time.</p>
+            <a href="emoji-sentence.html" class="play-store-btn">See Details</a>
         </div>
 
         <div class="app-card">
-            <span class="badge badge-utility">Utility App</span>
-            <h3>Tamcall - Tambola/Housie Caller</h3>
-            <p>The ultimate utility application for Tambola and Housie enthusiasts. Tamcall acts as a smart, automated number caller, making hosting game nights effortless and organized for families and large groups alike.</p>
-            <a href="tamcall.html" class="play-store-btn">View Details</a>
+            <span class="badge badge-utility">Family App</span>
+            <h3>Tamcall - Tambola Caller</h3>
+            <p>Hosting a Tambola or Housie party? Let Tamcall do the hard work for you. Our app automatically calls out the numbers clearly, so you can focus on enjoying the game night with your family and friends.</p>
+            <a href="tamcall.html" class="play-store-btn">See Details</a>
         </div>
 
         <div class="app-card">
-            <span class="badge badge-game">Mobile Game</span>
+            <span class="badge badge-game">Merge Game</span>
             <h3>Love Merge</h3>
-            <p>Immerse yourself in this cute, heart-themed merge puzzle game. Combine matching elements to progress through increasingly complex boards. Features adorable UI elements and relaxing gameplay mechanics.</p>
-            <a href="love-merge.html" class="play-store-btn">View Details</a>
+            <p>Immerse yourself in this super cute, heart-themed puzzle game. Just drop and merge matching hearts to score points. It is very easy to learn, highly satisfying, and a great way to pass the time.</p>
+            <a href="love-merge.html" class="play-store-btn">See Details</a>
         </div>
 
         <div class="app-card">
-            <span class="badge badge-game">Mobile Game</span>
+            <span class="badge badge-game">ASMR Puzzle</span>
             <h3>Arrows Paint ASMR</h3>
-            <p>A highly satisfying puzzle game focusing on path-finding logic and ASMR visual effects. Challenge your brain by painting the board through carefully calculated directional movements.</p>
-            <a href="arrows-paint.html" class="play-store-btn">Learn More</a>
+            <p>Calm your mind while solving these highly satisfying path-finding puzzles. Challenge your brain by painting the board with colorful arrows, and enjoy the relaxing ASMR sounds as you play.</p>
+            <a href="arrows-paint.html" class="play-store-btn">See Details</a>
         </div>
 
     </div>
 </section>
 
 <section class="about-section">
-    <h2>About the Developer</h2>
-    <p>Welcome to SavyChamp! I am an independent solo developer passionate about crafting highly engaging, visually pleasing 2D mobile apps and games.</p>
-    <p>A core philosophy of my development process is accessibility. Every title is rigorously optimized to ensure smooth, lag-free performance across a wide spectrum of mobile hardware, allowing users with low-end devices to enjoy premium digital experiences without compromise.</p>
-    <a href="about.html" class="play-store-btn" style="margin-top: 15px;">Read Our Full Story</a>
+    <h2>Who is behind SavyChamp?</h2>
+    <p>Hi there! I am a solo independent game developer based in India. I started SavyChamp because I wanted to create mobile games that are genuinely fun, relaxing, and easy for anyone to pick up and play.</p>
+    <p>I know how frustrating it is when a game lags or drains your battery. That is why I work hard to make sure every SavyChamp game runs perfectly smooth, even on older or low-end smartphones. Everyone deserves a great gaming experience without buying an expensive phone!</p>
+    <a href="about.html" class="play-store-btn" style="margin-top: 15px;">Read More About Me</a>
 </section>
 
 <footer>
-    <p>&copy; 2026 SavyChamp</p>
+    <p>&copy; 2026 SavyChamp. All rights reserved.</p>
     <p>
-        <a href="about.html">About</a> | 
+        <a href="about.html">About Us</a> | 
         <a href="blog.html">Blog</a> | 
+        <a href="contact.html">Contact Us</a> | 
         <a href="privacy-policy.html">Privacy Policy</a> | 
-        <a href="terms.html">Terms of Service</a>
+        <a href="terms.html">Terms of Service</a> |
+        <a href="disclaimer.html">Disclaimer</a>
     </p>
 </footer>
 

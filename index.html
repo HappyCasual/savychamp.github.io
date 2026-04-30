@@ -6,257 +6,278 @@
     <title>SavyChamp Studio</title>
 
     <style>
-        :root {
-            --primary-color: #0056b3;
-            --text-main: #2c3e50;
-            --text-muted: #6c757d;
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --border-radius: 12px;
-            --transition: all 0.3s ease;
+
+        :root{
+            --primary:#2563eb;
+            --dark:#1e293b;
+            --text:#475569;
+            --bg:#f1f5f9;
+            --white:#ffffff;
+            --border:16px;
+            --shadow:0 10px 25px rgba(0,0,0,0.06);
+            --transition:0.3s ease;
         }
 
-        * {
-            box-sizing: border-box;
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
         }
 
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-            line-height: 1.8; 
-            color: var(--text-main); 
-            background-color: var(--bg-color);
-            max-width: 1000px; 
-            margin: 0 auto; 
-            padding: 20px; 
+        body{
+            font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+            background:var(--bg);
+            color:var(--dark);
+            line-height:1.7;
         }
 
-        header { 
-            display: flex;
-            align-items: center;
-            padding: 40px 30px; 
-            background: var(--card-bg); 
-            border-radius: var(--border-radius); 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            margin-bottom: 50px;
+        .container{
+            width:100%;
+            max-width:1200px;
+            margin:auto;
+            padding:20px;
         }
 
-        .logo-container {
-            flex: 1;
-            display: flex;
-            justify-content: flex-start;
+        /* HEADER */
+
+        header{
+            background:var(--white);
+            border-radius:24px;
+            padding:40px;
+            box-shadow:var(--shadow);
+            margin-top:20px;
+            margin-bottom:50px;
         }
 
-        .logo {
-            max-width: 140px;
-            height: auto;
-            display: block;
+        .topbar{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+            gap:20px;
         }
 
-        .header-text {
-            flex: 2;
-            text-align: center;
+        .logo-section{
+            display:flex;
+            align-items:center;
+            gap:18px;
         }
 
-        .header-spacer {
-            flex: 1; 
-            display: flex;
-            justify-content: flex-end;
+        .logo{
+            width:90px;
+            height:90px;
+            object-fit:contain;
         }
 
-        .nav-menu {
-            display: flex;
-            gap: 20px;
+        .brand-text h1{
+            font-size:3rem;
+            color:var(--dark);
+            margin-bottom:5px;
         }
 
-        .nav-item {
-            font-weight: 600;
-            color: var(--text-main);
-            text-decoration: none;
-            transition: var(--transition);
+        .subtitle{
+            color:var(--primary);
+            font-size:1.1rem;
+            font-weight:600;
         }
 
-        .nav-item:hover {
-            color: var(--primary-color);
+        .nav-menu{
+            display:flex;
+            gap:15px;
+            flex-wrap:wrap;
         }
 
-        h1 { 
-            margin: 0 0 5px 0; 
-            color: #1a1a1a; 
-            font-size: 2.5rem;
-            font-weight: 700;
+        .nav-menu a{
+            text-decoration:none;
+            background:#eff6ff;
+            color:var(--primary);
+            padding:10px 18px;
+            border-radius:10px;
+            font-weight:600;
+            transition:var(--transition);
         }
 
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin: 0;
-            margin-bottom: 15px;
+        .nav-menu a:hover{
+            background:var(--primary);
+            color:white;
         }
 
-        .welcome-text {
-            font-size: 1rem;
-            color: #4a5568;
-            max-width: 90%;
-            margin: 0 auto;
+        .hero{
+            margin-top:35px;
+            padding-top:30px;
+            border-top:1px solid #e2e8f0;
         }
 
-        h2 { 
-            font-size: 1.8rem;
-            color: var(--text-main);
-            margin-bottom: 25px;
-            border-bottom: 2px solid #edf2f7;
-            padding-bottom: 10px;
+        .hero p{
+            color:var(--text);
+            font-size:1.05rem;
+            margin-bottom:18px;
+            max-width:900px;
         }
 
-        .portfolio-section {
-            margin-bottom: 60px;
+        /* SECTION */
+
+        section{
+            margin-bottom:60px;
         }
 
-        .about-section { 
-            background: var(--card-bg); 
-            padding: 40px; 
-            border-radius: var(--border-radius); 
-            margin-bottom: 30px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        .section-title{
+            font-size:2rem;
+            margin-bottom:30px;
+            color:var(--dark);
         }
 
-        .about-section p {
-            color: #4a5568;
-            font-size: 1.05rem;
-            margin-bottom: 15px;
+        /* GRID */
+
+        .app-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:28px;
         }
 
-        .app-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; 
+        .card{
+            background:var(--white);
+            border-radius:20px;
+            padding:30px;
+            box-shadow:var(--shadow);
+            transition:var(--transition);
+            border:1px solid #e2e8f0;
         }
 
-        .app-card { 
-            background: var(--card-bg); 
-            padding: 35px 30px; 
-            border-radius: var(--border-radius); 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
-            transition: var(--transition);
-            border: 1px solid rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
+        .card:hover{
+            transform:translateY(-6px);
         }
 
-        .app-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+        .badge{
+            display:inline-block;
+            margin-bottom:18px;
+            padding:6px 14px;
+            border-radius:30px;
+            font-size:0.75rem;
+            font-weight:700;
+            letter-spacing:0.5px;
+            text-transform:uppercase;
         }
 
-        .app-card h3 { 
-            margin: 0 0 15px 0; 
-            color: var(--primary-color); 
-            font-size: 1.4rem;
+        .game{
+            background:#dbeafe;
+            color:#1d4ed8;
         }
 
-        .app-card p {
-            color: #4a5568;
-            flex-grow: 1;
-            margin-bottom: 0;
+        .utility{
+            background:#dcfce7;
+            color:#15803d;
         }
 
-        .badge {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            align-self: flex-start;
+        .card h3{
+            font-size:1.5rem;
+            margin-bottom:15px;
+            color:var(--primary);
         }
 
-        .badge-game {
-            background-color: #e3f2fd;
-            color: #1976d2;
+        .card p{
+            color:var(--text);
+            margin-bottom:15px;
+            font-size:1rem;
         }
 
-        .badge-utility {
-            background-color: #e8f5e9;
-            color: #2e7d32;
+        .btn{
+            display:inline-block;
+            margin-top:15px;
+            text-decoration:none;
+            background:var(--dark);
+            color:white;
+            padding:12px 22px;
+            border-radius:10px;
+            font-weight:600;
+            transition:var(--transition);
         }
 
-        .play-store-btn {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 10px 18px;
-            background-color: var(--text-main);
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-align: center;
-            transition: var(--transition);
-            width: fit-content;
+        .btn:hover{
+            background:var(--primary);
         }
 
-        .play-store-btn:hover {
-            background-color: var(--primary-color);
-            color: #ffffff;
-            text-decoration: none;
+        /* ABOUT */
+
+        .about-box{
+            background:var(--white);
+            padding:40px;
+            border-radius:24px;
+            box-shadow:var(--shadow);
         }
 
-        footer { 
-            margin-top: 40px; 
-            padding: 30px 20px; 
-            font-size: 0.95em; 
-            color: var(--text-muted); 
-            text-align: center; 
-            border-top: 1px solid #e2e8f0; 
+        .about-box p{
+            color:var(--text);
+            margin-bottom:18px;
+            font-size:1.03rem;
         }
 
-        footer a { 
-            color: var(--primary-color); 
-            text-decoration: none; 
-            margin: 0 8px; 
-            transition: var(--transition);
-            font-weight: 500;
+        /* FOOTER */
+
+        footer{
+            background:var(--white);
+            border-radius:20px;
+            padding:35px 20px;
+            text-align:center;
+            box-shadow:var(--shadow);
+            margin-bottom:30px;
         }
 
-        footer a:hover { 
-            text-decoration: underline; 
-            color: #003d82;
+        footer p{
+            color:var(--text);
+            margin-bottom:15px;
         }
 
-        @media (max-width: 768px) {
-            header { 
-                flex-direction: column;
-                padding: 30px 20px; 
+        footer a{
+            text-decoration:none;
+            color:var(--primary);
+            margin:0 8px;
+            font-weight:600;
+        }
+
+        footer a:hover{
+            text-decoration:underline;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:768px){
+
+            header{
+                padding:25px;
             }
 
-            .logo-container {
-                justify-content: center;
-                margin-bottom: 20px;
+            .topbar{
+                flex-direction:column;
+                align-items:flex-start;
             }
 
-            .header-spacer {
-                justify-content: center;
-                margin-top: 20px;
+            .brand-text h1{
+                font-size:2.2rem;
             }
 
-            h1 { 
-                font-size: 2rem; 
+            .hero p{
+                font-size:1rem;
             }
 
-            .about-section { 
-                padding: 25px; 
+            .section-title{
+                font-size:1.7rem;
             }
 
-            .welcome-text { 
-                max-width: 100%; 
+            .card{
+                padding:25px;
             }
+
+            .about-box{
+                padding:25px;
+            }
+
         }
+
     </style>
 
     <script async 
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7442740355702214" 
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7442740355702214"
         crossorigin="anonymous">
     </script>
 
@@ -264,199 +285,195 @@
 
 <body>
 
+<div class="container">
+
 <header>
 
-    <div class="logo-container">
-        <img src="logo.png" alt="SavyChamp Logo" class="logo">
-    </div>
+    <div class="topbar">
 
-    <div class="header-text">
-        <h1>SavyChamp</h1>
+        <div class="logo-section">
 
-        <p class="subtitle">
-            Fun, relaxing, and simple mobile games for everyone.
-        </p>
+            <img src="logo.png" alt="SavyChamp Logo" class="logo">
 
-        <p class="welcome-text">
-            Welcome to SavyChamp. We are an independent mobile game studio from India. 
-            Our goal is to create simple, lightweight, and enjoyable mobile games that anyone can play comfortably. 
-            We focus on smooth performance, relaxing gameplay, and clean user experience for all types of players.
-        </p>
+            <div class="brand-text">
+                <h1>SavyChamp</h1>
+                <p class="subtitle">
+                    Fun, relaxing, and simple mobile games for everyone
+                </p>
+            </div>
 
-        <p class="welcome-text">
-            Whether you enjoy puzzle games, brain games, casual games, or family entertainment apps, 
-            we always try to create experiences that feel simple, stress free, and satisfying to use.
-        </p>
-    </div>
+        </div>
 
-    <div class="header-spacer">
         <nav class="nav-menu">
-            <a href="about.html" class="nav-item">About Us</a>
-            <a href="blog.html" class="nav-item">Our Blog</a>
+            <a href="about.html">About Us</a>
+            <a href="blog.html">Our Blog</a>
+            <a href="contact.html">Contact</a>
         </nav>
+
+    </div>
+
+    <div class="hero">
+
+        <p>
+            Welcome to SavyChamp. We are an independent mobile game studio from India focused on creating simple, lightweight, and enjoyable mobile games for everyone.
+        </p>
+
+        <p>
+            Our goal is to make games that feel relaxing, smooth, and easy to play without stress or confusion. We believe mobile games should work properly even on normal Android phones without lag problems.
+        </p>
+
+        <p>
+            We create puzzle games, brain games, casual games, and family-friendly entertainment apps with clean UI and comfortable gameplay experience.
+        </p>
+
     </div>
 
 </header>
 
-<section class="portfolio-section">
+<section>
 
-    <h2>Games We Made For You</h2>
+    <h2 class="section-title">Games We Made For You</h2>
 
     <div class="app-grid">
 
-        <div class="app-card">
-            <span class="badge badge-game">Puzzle Game</span>
+        <div class="card">
+
+            <span class="badge game">Puzzle Game</span>
 
             <h3>Jig Cards: Multi Art Puzzle</h3>
 
             <p>
-                Jig Cards is a relaxing puzzle game created for players who enjoy beautiful artwork and satisfying puzzle solving. 
-                Instead of physical puzzle pieces getting lost, everything is available directly on your mobile phone. 
-                The game includes different art styles and relaxing visuals which make puzzle solving more enjoyable.
+                A relaxing jigsaw puzzle game with beautiful artwork and smooth gameplay experience.
             </p>
 
             <p>
-                Many users like playing puzzle games to relax after a busy day. 
-                That is why we designed Jig Cards with smooth controls, clean interface, and simple gameplay that feels comfortable for everyone.
+                Designed for players who enjoy calm puzzle solving and satisfying visuals.
             </p>
 
-            <a href="jig-cards.html" class="play-store-btn">See Details</a>
+            <a href="jig-cards.html" class="btn">See Details</a>
+
         </div>
 
-        <div class="app-card">
-            <span class="badge badge-game">Brain Game</span>
+        <div class="card">
 
-            <h3>Emoji Sentence: Brain Puzzle</h3>
+            <span class="badge game">Brain Game</span>
+
+            <h3>Emoji Sentence Puzzle</h3>
 
             <p>
-                Emoji Sentence Puzzle is a fun word and logic game where players guess hidden phrases using emojis. 
-                Some puzzles are easy while others require creative thinking and smart observation.
+                Guess hidden phrases using emojis and improve your logic thinking in a fun way.
             </p>
 
             <p>
-                The game is suitable for all age groups and gives a nice brain workout in a fun way. 
-                We designed the gameplay to feel challenging but not frustrating.
+                Simple gameplay with creative and challenging puzzles for all age groups.
             </p>
 
-            <a href="emoji-sentence.html" class="play-store-btn">See Details</a>
+            <a href="emoji-sentence.html" class="btn">See Details</a>
+
         </div>
 
-        <div class="app-card">
-            <span class="badge badge-utility">Family App</span>
+        <div class="card">
+
+            <span class="badge utility">Family App</span>
 
             <h3>Tamcall - Tambola Caller</h3>
 
             <p>
-                Tamcall is a useful family entertainment app designed for Tambola and Housie game nights. 
-                Instead of manually calling numbers, the app automatically announces numbers clearly and smoothly.
+                Automatic Tambola number caller app for family game nights and fun gatherings.
             </p>
 
             <p>
-                This makes family gatherings and game nights easier and more enjoyable. 
-                We wanted to create something simple that helps users spend more time enjoying with friends and family.
+                Easy to use and useful for parties, functions, and family entertainment.
             </p>
 
-            <a href="tamcall.html" class="play-store-btn">See Details</a>
+            <a href="tamcall.html" class="btn">See Details</a>
+
         </div>
 
-        <div class="app-card">
-            <span class="badge badge-game">Merge Game</span>
+        <div class="card">
+
+            <span class="badge game">Merge Game</span>
 
             <h3>Love Merge</h3>
 
             <p>
-                Love Merge is a cute and relaxing merge puzzle game with colorful heart themes and satisfying gameplay. 
-                Players simply drop and merge matching items to score points and continue progressing.
+                Cute heart-themed merge puzzle game with colorful visuals and satisfying gameplay.
             </p>
 
             <p>
-                The game is easy to learn and suitable for short relaxing sessions anytime during the day. 
-                Smooth animations and simple controls make the gameplay feel satisfying and comfortable.
+                Relaxing experience with smooth animations and stress free gameplay.
             </p>
 
-            <a href="love-merge.html" class="play-store-btn">See Details</a>
+            <a href="love-merge.html" class="btn">See Details</a>
+
         </div>
 
-        <div class="app-card">
-            <span class="badge badge-game">ASMR Puzzle</span>
+        <div class="card">
+
+            <span class="badge game">ASMR Puzzle</span>
 
             <h3>Arrows Paint ASMR</h3>
 
             <p>
-                Arrows Paint ASMR is an upcoming puzzle game focused on relaxing gameplay and satisfying paint animations. 
-                Players solve path puzzles using colorful arrows while enjoying calm visual effects and smooth movements.
+                Relaxing puzzle game with colorful paint effects and smooth arrow path gameplay.
             </p>
 
             <p>
-                We are carefully designing this game to give a relaxing and stress free experience along with interesting puzzle challenges.
+                Calm visuals and satisfying puzzle solving experience for casual players.
             </p>
 
-            <a href="arrows-paint.html" class="play-store-btn">See Details</a>
+            <a href="arrows-paint.html" class="btn">See Details</a>
+
         </div>
 
     </div>
 
 </section>
 
-<section class="about-section">
+<section>
 
-    <h2>Who is behind SavyChamp?</h2>
+    <div class="about-box">
 
-    <p>
-        Hi and welcome to SavyChamp. 
-        SavyChamp is managed by an independent solo developer from India who enjoys creating mobile games, puzzle experiences, and useful apps for everyday users.
-    </p>
+        <h2 class="section-title">Who is behind SavyChamp?</h2>
 
-    <p>
-        The main aim behind SavyChamp is very simple. 
-        We want to create games that feel enjoyable, lightweight, relaxing, and easy to use without unnecessary complexity.
-    </p>
+        <p>
+            SavyChamp is managed by an independent solo developer from India who enjoys building mobile games and useful entertainment apps.
+        </p>
 
-    <p>
-        Many mobile games today become very heavy, complicated, and full of unwanted features. 
-        Some games require expensive phones to work properly. 
-        At SavyChamp, we believe users should still get a smooth experience even on normal Android devices.
-    </p>
+        <p>
+            We focus strongly on optimization, smooth performance, clean UI design, and comfortable user experience for all types of players.
+        </p>
 
-    <p>
-        Because of this, we focus strongly on optimization, smooth performance, and clean user interface design. 
-        Every app is tested carefully to reduce lag, improve loading speed, and provide stable gameplay experience.
-    </p>
+        <p>
+            Every game is carefully tested to reduce lag, improve loading speed, and provide stable gameplay even on low-end Android devices.
+        </p>
 
-    <p>
-        As an independent developer, everything is handled with personal attention including game ideas, coding, UI design, testing, optimization, and updates. 
-        This helps maintain a consistent quality and simple user experience across all SavyChamp apps.
-    </p>
+        <p>
+            Thank you for supporting independent mobile game development and visiting SavyChamp.
+        </p>
 
-    <p>
-        We also regularly improve our games based on user feedback and new ideas. 
-        User support and encouragement help us continue building more enjoyable apps and puzzle games in the future.
-    </p>
+        <a href="about.html" class="btn">Read More About Me</a>
 
-    <p>
-        Thank you for visiting SavyChamp and supporting independent mobile game development.
-    </p>
-
-    <a href="about.html" class="play-store-btn" style="margin-top: 15px;">
-        Read More About Me
-    </a>
+    </div>
 
 </section>
 
 <footer>
 
-    <p>&copy; 2026 SavyChamp. All rights reserved.</p>
+    <p>© 2026 SavyChamp. All rights reserved.</p>
 
     <p>
-        <a href="about.html">About Us</a> | 
-        <a href="blog.html">Blog</a> | 
-        <a href="contact.html">Contact Us</a> | 
-        <a href="privacy-policy.html">Privacy Policy</a> | 
-        <a href="terms.html">Terms of Service</a> |
+        <a href="about.html">About Us</a> |
+        <a href="blog.html">Blog</a> |
+        <a href="contact.html">Contact</a> |
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms</a> |
         <a href="disclaimer.html">Disclaimer</a>
     </p>
 
 </footer>
+
+</div>
 
 </body>
 </html>

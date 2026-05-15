@@ -1,335 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Blog | SavyChamp</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script async 
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7442740355702214" 
-        crossorigin="anonymous">
-    </script>
+<title>Developer Blog | SavyChamp</title>
 
-    <style>
-        :root {
-            --primary-color: #0056b3;
-            --text-main: #2c3e50;
-            --text-muted: #6c757d;
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --border-radius: 12px;
-        }
+<meta name="description" content="Explore the SavyChamp developer blog to learn about mobile game development, optimization, UI design, and solo developer journey.">
 
-        * {
-            box-sizing: border-box;
-        }
+<style>
+:root {
+    --primary-color: #0056b3;
+    --text-main: #2c3e50;
+    --text-muted: #6c757d;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.8;
-            color: var(--text-main);
-            background-color: var(--bg-color);
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+body {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    line-height: 1.8;
+    color: var(--text-main);
+    background-color: var(--bg-color);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
 
-        h1 {
-            font-size: 2.5rem;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-        }
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
 
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-        }
+.subtitle {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
 
-        .nav-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
+.nav-link {
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
 
-        .nav-link:hover {
-            text-decoration: underline;
-        }
+.content-box {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+}
 
-        .content-box {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
+.blog-item {
+    background: #f9fafb;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
 
-        h2 {
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            margin-top: 40px;
-            margin-bottom: 15px;
-        }
+.read-more {
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 16px;
+    background:#e2e8f0;
+    border-radius:6px;
+    text-decoration:none;
+}
 
-        p {
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-            color: #333;
-        }
+footer{
+    text-align:center;
+    margin-top:40px;
+}
+</style>
 
-        .blog-list {
-            margin-top: 30px;
-        }
-
-        .blog-item {
-            padding: 25px;
-            border-radius: 10px;
-            background: #f9fafb;
-            margin-bottom: 25px;
-            border: 1px solid #e5e7eb;
-        }
-
-        .blog-item h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-        }
-
-        .read-more {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 16px;
-            background-color: #e2e8f0;
-            color: var(--text-main);
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .read-more:hover {
-            background-color: #cbd5e1;
-        }
-    </style>
 </head>
 
 <body>
 
-    <a href="index.html" class="nav-link">&larr; Back to Home</a>
+<a href="index.html" class="nav-link">← Back to Home</a>
 
-    <div class="content-box">
+<div class="content-box">
 
-        <h1>SavyChamp Devlog</h1>
+<h1>SavyChamp Devlog</h1>
 
-        <p class="subtitle">
-            Behind the scenes of independent mobile game development.
-        </p>
+<p class="subtitle">
+Behind the scenes of independent mobile game development.
+</p>
 
-        <p>
-            Welcome to the official SavyChamp Developer Blog. 
-            This section is created to share our development journey, ideas, experiences, and the work happening behind the scenes while building mobile games and apps.
-        </p>
+<p>
+Welcome to the SavyChamp Developer Blog where we share real insights about mobile game development, design decisions, and optimization techniques.
+</p>
 
-        <p>
-            Many users only see the final version of a game after downloading it from the Play Store. 
-            But behind every game, there are many stages like planning, coding, testing, design work, optimization, and problem solving.
-        </p>
+<p>
+This blog helps users understand how games are built, tested, and improved step by step.
+</p>
 
-        <p>
-            Through this blog, we want to share some of those experiences in a simple and easy way. 
-            We believe users should also know how games are created and what kind of work happens during development.
-        </p>
+<h2>What You Will Learn Here</h2>
 
-        <p>
-            At SavyChamp, we focus on creating lightweight, smooth, relaxing, and enjoyable mobile experiences. 
-            Most of our apps and games are designed with simple gameplay, colorful visuals, and clean user experience.
-        </p>
+<p>
+Through this blog, you can learn about game design, UI simplicity, performance optimization, automation, and the journey of a solo developer.
+</p>
 
-        <p>
-            This blog is also a place where we share our thoughts about game design, performance optimization, puzzle balancing, automation tools, and independent development.
-        </p>
+<div class="blog-item">
+<h3>Python Automation for Game Assets</h3>
+<p>Learn how automation improves development speed.</p>
+<a href="blog-python-automation.html" class="read-more">Read Article</a>
+</div>
 
-        <h2>Why We Started This Devlog</h2>
+<div class="blog-item">
+<h3>ASMR Design in Games</h3>
+<p>Understand smooth visuals and satisfying gameplay.</p>
+<a href="blog-asmr-design.html" class="read-more">Read Article</a>
+</div>
 
-        <p>
-            We started this developer blog to create a stronger connection with users and share our development process openly. 
-            Many people are interested in how mobile games are built, especially independent games created by solo developers.
-        </p>
+<div class="blog-item">
+<h3>Mobile Optimization</h3>
+<p>Learn how apps run smoothly on low-end devices.</p>
+<a href="blog-mobile-optimization.html" class="read-more">Read Article</a>
+</div>
 
-        <p>
-            Development is not only about writing code. 
-            It also includes creativity, problem solving, testing, design thinking, and continuous improvement.
-        </p>
+<div class="blog-item">
+<h3>Solo Developer Journey</h3>
+<p>Explore challenges of independent development.</p>
+<a href="blog-solo-dev-journey.html" class="read-more">Read Article</a>
+</div>
 
-        <p>
-            Sometimes even a small feature may take many hours of work behind the scenes. 
-            Through these articles, we explain those experiences in simple words so anyone can understand them easily.
-        </p>
+<div class="blog-item">
+<h3>Puzzle Difficulty Design</h3>
+<p>Learn how games balance challenge and fun.</p>
+<a href="blog-puzzle-logic.html" class="read-more">Read Article</a>
+</div>
 
-        <p>
-            We also want to document our learning journey and development methods as we continue improving our projects over time.
-        </p>
+<h2>Why This Blog Matters</h2>
 
-        <h2>Independent Development Journey</h2>
+<p>
+This blog provides real-world insights and helps users and developers understand how simple games are created and optimized.
+</p>
 
-        <p>
-            SavyChamp is managed as an independent development studio. 
-            This means most work is handled by a solo developer instead of a large company team.
-        </p>
+</div>
 
-        <p>
-            Independent development requires handling many responsibilities together. 
-            Coding, graphics, testing, optimization, publishing, updates, and support all become part of daily work.
-        </p>
+<footer>
 
-        <p>
-            Some days focus more on gameplay programming, while other days involve visual design, fixing bugs, or improving app performance.
-        </p>
+<p>© 2026 SavyChamp</p>
 
-        <p>
-            Even though solo development can be challenging, it also gives creative freedom and flexibility to experiment with new ideas.
-        </p>
+<p>
+<a href="index.html">Home</a> |
+<a href="about.html">About</a> |
+<a href="contact.html">Contact</a> |
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="terms.html">Terms</a> |
+<a href="disclaimer.html">Disclaimer</a>
+</p>
 
-        <h2>Focus on Smooth Mobile Experience</h2>
-
-        <p>
-            One important goal at SavyChamp is creating apps that run smoothly on normal Android devices. 
-            Many users do not use expensive flagship phones, so performance optimization is very important.
-        </p>
-
-        <p>
-            We regularly test our apps on devices with lower RAM and average hardware specifications. 
-            This helps us keep games lightweight, responsive, and user friendly.
-        </p>
-
-        <p>
-            We believe good mobile experiences should be accessible to everyone without needing costly devices.
-        </p>
-
-        <p>
-            Smooth animations, faster loading times, and lightweight app size all help improve overall user satisfaction.
-        </p>
-
-        <h2>Topics We Share in This Blog</h2>
-
-        <p>
-            Our developer blog covers different topics related to mobile game development and app creation.
-        </p>
-
-        <div class="blog-list">
-
-            <div class="blog-item">
-                <h3>Automating 2D Game Assets with Python</h3>
-
-                <p>
-                    In this article, we explain how Python automation tools help manage images, organize folders, detect duplicate files, and improve workflow speed during development.
-                </p>
-
-                <p>
-                    Automation helps save time and reduces repetitive manual work while building mobile games.
-                </p>
-
-                <a href="blog-python-automation.html" class="read-more">
-                    Read Article
-                </a>
-            </div>
-
-            <div class="blog-item">
-                <h3>Designing for Satisfaction: ASMR in Puzzle Games</h3>
-
-                <p>
-                    This article talks about smooth animations, relaxing gameplay, colorful visuals, and satisfying interactions used in puzzle games like Arrows Paint ASMR.
-                </p>
-
-                <p>
-                    We explain why game feel and visual satisfaction are important parts of user experience.
-                </p>
-
-                <a href="blog-asmr-design.html" class="read-more">
-                    Read Article
-                </a>
-            </div>
-
-            <div class="blog-item">
-                <h3>The Sweet Spot of Mobile Optimization</h3>
-
-                <p>
-                    Here we discuss how optimization helps apps run smoothly on budget Android devices with lower RAM and limited storage.
-                </p>
-
-                <p>
-                    We also share our approach to lightweight game development and better mobile performance.
-                </p>
-
-                <a href="blog-mobile-optimization.html" class="read-more">
-                    Read Article
-                </a>
-            </div>
-
-            <div class="blog-item">
-                <h3>The Solo Developer Journey</h3>
-
-                <p>
-                    This article explains the challenges and experiences of managing game development independently as a solo creator.
-                </p>
-
-                <p>
-                    It covers creativity, multitasking, learning new skills, and balancing different responsibilities together.
-                </p>
-
-                <a href="blog-solo-dev-journey.html" class="read-more">
-                    Read Article
-                </a>
-            </div>
-
-            <div class="blog-item">
-                <h3>Balancing Difficulty in Word & Logic Puzzles</h3>
-
-                <p>
-                    In this article, we explain how puzzle difficulty is balanced carefully to make games challenging but still enjoyable and fair.
-                </p>
-
-                <p>
-                    We also discuss player thinking patterns, hint systems, and puzzle design ideas.
-                </p>
-
-                <a href="blog-puzzle-logic.html" class="read-more">
-                    Read Article
-                </a>
-            </div>
-
-        </div>
-
-        <h2>Learning and Improving Continuously</h2>
-
-        <p>
-            Game development is a continuous learning process. 
-            Every project teaches something new about coding, design, optimization, creativity, and user experience.
-        </p>
-
-        <p>
-            Technology changes regularly, so developers must keep learning new tools and techniques to improve their work.
-        </p>
-
-        <p>
-            Through this blog, we also share some of the lessons and experiences we gain while creating apps and games.
-        </p>
-
-        <h2>Thank You for Supporting SavyChamp</h2>
-
-        <p>
-            We are very thankful to everyone who downloads, plays, shares, and supports our apps and games. 
-            User support gives motivation to continue creating new ideas and improving future projects.
-        </p>
-
-        <p>
-            We hope this developer blog helps users understand more about our work, our development process, and the creative journey behind SavyChamp.
-        </p>
-
-        <p>
-            Thank you for visiting the SavyChamp Devlog and being part of our development journey.
-        </p>
-
-    </div>
+</footer>
 
 </body>
 </html>

@@ -1,285 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SavyChamp Studio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
+<title>SavyChamp - Relaxing Games & Casual Gaming Guides</title>
 
-        :root{
-            --primary:#2563eb;
-            --dark:#1e293b;
-            --text:#475569;
-            --bg:#f1f5f9;
-            --white:#ffffff;
-            --border:16px;
-            --shadow:0 10px 25px rgba(0,0,0,0.06);
-            --transition:0.3s ease;
-        }
+<meta name="description" content="Play relaxing mobile games and read helpful gaming guides. SavyChamp offers simple games and useful content for casual players.">
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
+<style>
+:root{
+    --primary:#2563eb;
+    --dark:#1e293b;
+    --text:#475569;
+    --bg:#f1f5f9;
+    --white:#ffffff;
+    --shadow:0 10px 25px rgba(0,0,0,0.06);
+}
 
-        body{
-            font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-            background:var(--bg);
-            color:var(--dark);
-            line-height:1.7;
-        }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-        .container{
-            width:100%;
-            max-width:1200px;
-            margin:auto;
-            padding:20px;
-        }
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    line-height:1.7;
+}
 
-        /* HEADER */
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
 
-        header{
-            background:var(--white);
-            border-radius:24px;
-            padding:40px;
-            box-shadow:var(--shadow);
-            margin-top:20px;
-            margin-bottom:50px;
-        }
+header{
+    background:var(--white);
+    border-radius:20px;
+    padding:35px;
+    box-shadow:var(--shadow);
+    margin-bottom:40px;
+}
 
-        .topbar{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            flex-wrap:wrap;
-            gap:20px;
-        }
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+}
 
-        .logo-section{
-            display:flex;
-            align-items:center;
-            gap:18px;
-        }
+.logo-section{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
 
-        .logo{
-            width:90px;
-            height:90px;
-            object-fit:contain;
-        }
+.logo{
+    width:80px;
+}
 
-        .brand-text h1{
-            font-size:3rem;
-            color:var(--dark);
-            margin-bottom:5px;
-        }
+.brand-text h1{
+    font-size:2.4rem;
+}
 
-        .subtitle{
-            color:var(--primary);
-            font-size:1.1rem;
-            font-weight:600;
-        }
+.subtitle{
+    color:var(--primary);
+    font-weight:600;
+}
 
-        .nav-menu{
-            display:flex;
-            gap:15px;
-            flex-wrap:wrap;
-        }
+.nav-menu a{
+    text-decoration:none;
+    margin:5px;
+    padding:8px 14px;
+    background:#eff6ff;
+    color:var(--primary);
+    border-radius:8px;
+    font-weight:600;
+}
 
-        .nav-menu a{
-            text-decoration:none;
-            background:#eff6ff;
-            color:var(--primary);
-            padding:10px 18px;
-            border-radius:10px;
-            font-weight:600;
-            transition:var(--transition);
-        }
+.hero{
+    margin-top:20px;
+}
 
-        .nav-menu a:hover{
-            background:var(--primary);
-            color:white;
-        }
+.hero p{
+    margin-top:12px;
+    color:var(--text);
+}
 
-        .hero{
-            margin-top:35px;
-            padding-top:30px;
-            border-top:1px solid #e2e8f0;
-        }
+section{
+    margin:50px 0;
+}
 
-        .hero p{
-            color:var(--text);
-            font-size:1.05rem;
-            margin-bottom:18px;
-            max-width:900px;
-        }
+.section-title{
+    font-size:1.8rem;
+    margin-bottom:20px;
+}
 
-        /* SECTION */
+.app-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
 
-        section{
-            margin-bottom:60px;
-        }
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:var(--shadow);
+    transition:0.3s;
+}
 
-        .section-title{
-            font-size:2rem;
-            margin-bottom:30px;
-            color:var(--dark);
-        }
+.card:hover{
+    transform:translateY(-5px);
+}
 
-        /* GRID */
+.card h3{
+    color:var(--primary);
+    margin-bottom:10px;
+}
 
-        .app-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-            gap:28px;
-        }
+.btn{
+    display:inline-block;
+    margin-top:10px;
+    background:var(--dark);
+    color:white;
+    padding:10px 15px;
+    border-radius:8px;
+    text-decoration:none;
+}
 
-        .card{
-            background:var(--white);
-            border-radius:20px;
-            padding:30px;
-            box-shadow:var(--shadow);
-            transition:var(--transition);
-            border:1px solid #e2e8f0;
-        }
+.btn:hover{
+    background:var(--primary);
+}
 
-        .card:hover{
-            transform:translateY(-6px);
-        }
-
-        .badge{
-            display:inline-block;
-            margin-bottom:18px;
-            padding:6px 14px;
-            border-radius:30px;
-            font-size:0.75rem;
-            font-weight:700;
-            letter-spacing:0.5px;
-            text-transform:uppercase;
-        }
-
-        .game{
-            background:#dbeafe;
-            color:#1d4ed8;
-        }
-
-        .utility{
-            background:#dcfce7;
-            color:#15803d;
-        }
-
-        .card h3{
-            font-size:1.5rem;
-            margin-bottom:15px;
-            color:var(--primary);
-        }
-
-        .card p{
-            color:var(--text);
-            margin-bottom:15px;
-            font-size:1rem;
-        }
-
-        .btn{
-            display:inline-block;
-            margin-top:15px;
-            text-decoration:none;
-            background:var(--dark);
-            color:white;
-            padding:12px 22px;
-            border-radius:10px;
-            font-weight:600;
-            transition:var(--transition);
-        }
-
-        .btn:hover{
-            background:var(--primary);
-        }
-
-        /* ABOUT */
-
-        .about-box{
-            background:var(--white);
-            padding:40px;
-            border-radius:24px;
-            box-shadow:var(--shadow);
-        }
-
-        .about-box p{
-            color:var(--text);
-            margin-bottom:18px;
-            font-size:1.03rem;
-        }
-
-        /* FOOTER */
-
-        footer{
-            background:var(--white);
-            border-radius:20px;
-            padding:35px 20px;
-            text-align:center;
-            box-shadow:var(--shadow);
-            margin-bottom:30px;
-        }
-
-        footer p{
-            color:var(--text);
-            margin-bottom:15px;
-        }
-
-        footer a{
-            text-decoration:none;
-            color:var(--primary);
-            margin:0 8px;
-            font-weight:600;
-        }
-
-        footer a:hover{
-            text-decoration:underline;
-        }
-
-        /* MOBILE */
-
-        @media(max-width:768px){
-
-            header{
-                padding:25px;
-            }
-
-            .topbar{
-                flex-direction:column;
-                align-items:flex-start;
-            }
-
-            .brand-text h1{
-                font-size:2.2rem;
-            }
-
-            .hero p{
-                font-size:1rem;
-            }
-
-            .section-title{
-                font-size:1.7rem;
-            }
-
-            .card{
-                padding:25px;
-            }
-
-            .about-box{
-                padding:25px;
-            }
-
-        }
-
-    </style>
-
-    <script async 
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7442740355702214"
-        crossorigin="anonymous">
-    </script>
+footer{
+    text-align:center;
+    padding:30px;
+    background:white;
+    border-radius:15px;
+    box-shadow:var(--shadow);
+}
+</style>
 
 </head>
 
@@ -289,187 +149,144 @@
 
 <header>
 
-    <div class="topbar">
+<div class="topbar">
 
-        <div class="logo-section">
+<div class="logo-section">
+<img src="logo.png" class="logo">
+<div class="brand-text">
+<h1>SavyChamp</h1>
+<p class="subtitle">Simple Games & Relaxing Content</p>
+</div>
+</div>
 
-            <img src="logo.png" alt="SavyChamp Logo" class="logo">
+<nav class="nav-menu">
+<a href="about.html">About</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html">Contact</a>
+</nav>
 
-            <div class="brand-text">
-                <h1>SavyChamp</h1>
-                <p class="subtitle">
-                    Fun, relaxing, and simple mobile games for everyone
-                </p>
-            </div>
+</div>
 
-        </div>
+<div class="hero">
 
-        <nav class="nav-menu">
-            <a href="about.html">About Us</a>
-            <a href="blog.html">Our Blog</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+<p>
+Welcome to SavyChamp, a platform where you can enjoy simple and relaxing mobile games along with helpful gaming content. 
+Our goal is to provide a smooth, stress-free, and user-friendly experience for everyone.
+</p>
 
-    </div>
+<p>
+We design lightweight games that work well on most Android devices, including low-end phones, so users can enjoy without lag or performance issues.
+</p>
 
-    <div class="hero">
+<p>
+Along with games, we publish useful articles about casual gaming, relaxing gameplay, and simple tips to improve your experience.
+</p>
 
-        <p>
-            Welcome to SavyChamp. We are an independent mobile game studio from India focused on creating simple, lightweight, and enjoyable mobile games for everyone.
-        </p>
-
-        <p>
-            Our goal is to make games that feel relaxing, smooth, and easy to play without stress or confusion. We believe mobile games should work properly even on normal Android phones without lag problems.
-        </p>
-
-        <p>
-            We create puzzle games, brain games, casual games, and family-friendly entertainment apps with clean UI and comfortable gameplay experience.
-        </p>
-
-    </div>
+</div>
 
 </header>
 
-<section>
-
-    <h2 class="section-title">Games We Made For You</h2>
-
-    <div class="app-grid">
-
-        <div class="card">
-
-            <span class="badge game">Puzzle Game</span>
-
-            <h3>Jig Cards: Multi Art Puzzle</h3>
-
-            <p>
-                A relaxing jigsaw puzzle game with beautiful artwork and smooth gameplay experience.
-            </p>
-
-            <p>
-                Designed for players who enjoy calm puzzle solving and satisfying visuals.
-            </p>
-
-            <a href="jig-cards.html" class="btn">See Details</a>
-
-        </div>
-
-        <div class="card">
-
-            <span class="badge game">Brain Game</span>
-
-            <h3>Emoji Sentence Puzzle</h3>
-
-            <p>
-                Guess hidden phrases using emojis and improve your logic thinking in a fun way.
-            </p>
-
-            <p>
-                Simple gameplay with creative and challenging puzzles for all age groups.
-            </p>
-
-            <a href="emoji-sentence.html" class="btn">See Details</a>
-
-        </div>
-
-        <div class="card">
-
-            <span class="badge utility">Family App</span>
-
-            <h3>Tamcall - Tambola Caller</h3>
-
-            <p>
-                Automatic Tambola number caller app for family game nights and fun gatherings.
-            </p>
-
-            <p>
-                Easy to use and useful for parties, functions, and family entertainment.
-            </p>
-
-            <a href="tamcall.html" class="btn">See Details</a>
-
-        </div>
-
-        <div class="card">
-
-            <span class="badge game">Merge Game</span>
-
-            <h3>Love Merge</h3>
-
-            <p>
-                Cute heart-themed merge puzzle game with colorful visuals and satisfying gameplay.
-            </p>
-
-            <p>
-                Relaxing experience with smooth animations and stress free gameplay.
-            </p>
-
-            <a href="love-merge.html" class="btn">See Details</a>
-
-        </div>
-
-        <div class="card">
-
-            <span class="badge game">ASMR Puzzle</span>
-
-            <h3>Arrows Paint ASMR</h3>
-
-            <p>
-                Relaxing puzzle game with colorful paint effects and smooth arrow path gameplay.
-            </p>
-
-            <p>
-                Calm visuals and satisfying puzzle solving experience for casual players.
-            </p>
-
-            <a href="arrows-paint.html" class="btn">See Details</a>
-
-        </div>
-
-    </div>
-
-</section>
+<!-- GAMES SECTION -->
 
 <section>
 
-    <div class="about-box">
+<h2 class="section-title">Our Games</h2>
 
-        <h2 class="section-title">Who is behind SavyChamp?</h2>
+<div class="app-grid">
 
-        <p>
-            SavyChamp is managed by an independent solo developer from India who enjoys building mobile games and useful entertainment apps.
-        </p>
+<div class="card">
+<h3>Jig Cards Puzzle</h3>
+<p>Relaxing jigsaw puzzle with smooth gameplay experience.</p>
+<a href="jig-cards.html" class="btn">View Game</a>
+</div>
 
-        <p>
-            We focus strongly on optimization, smooth performance, clean UI design, and comfortable user experience for all types of players.
-        </p>
+<div class="card">
+<h3>Emoji Sentence Puzzle</h3>
+<p>Guess hidden phrases using emojis and improve your thinking skills.</p>
+<a href="emoji-sentence.html" class="btn">View Game</a>
+</div>
 
-        <p>
-            Every game is carefully tested to reduce lag, improve loading speed, and provide stable gameplay even on low-end Android devices.
-        </p>
+<div class="card">
+<h3>Tambola Caller</h3>
+<p>Automatic tambola number caller for fun and family entertainment.</p>
+<a href="tamcall.html" class="btn">View App</a>
+</div>
 
-        <p>
-            Thank you for supporting independent mobile game development and visiting SavyChamp.
-        </p>
+<div class="card">
+<h3>Love Merge</h3>
+<p>Simple and relaxing merge puzzle with colorful visuals.</p>
+<a href="love-merge.html" class="btn">View Game</a>
+</div>
 
-        <a href="about.html" class="btn">Read More About Me</a>
+<div class="card">
+<h3>Arrows Paint ASMR</h3>
+<p>Satisfying puzzle game with smooth paint effects.</p>
+<a href="arrows-paint.html" class="btn">View Game</a>
+</div>
 
-    </div>
+</div>
 
 </section>
+
+<!-- BLOG SECTION (VERY IMPORTANT) -->
+
+<section>
+
+<h2 class="section-title">Latest Articles</h2>
+
+<div class="app-grid">
+
+<div class="card">
+<h3>How Mobile Games Help Reduce Stress</h3>
+<p>Understand how simple games can help you relax and feel better.</p>
+<a href="blog-how-mobile-games-reduce-stress.html" class="btn">Read Article</a>
+</div>
+
+<div class="card">
+<h3>Why Simple Mobile Games Are Popular</h3>
+<p>Learn why users prefer easy and relaxing games over complex ones.</p>
+<a href="blog-simple-mobile-games-popular.html" class="btn">Read Article</a>
+</div>
+
+<div class="card">
+<h3>Why Simple UI Matters in Games</h3>
+<p>Clean design improves gameplay and user experience.</p>
+<a href="blog-why-simple-ui-matters.html" class="btn">Read Article</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT SECTION -->
+
+<section>
+
+<h2 class="section-title">About SavyChamp</h2>
+
+<p>
+SavyChamp is an independent gaming platform focused on creating simple, enjoyable, and optimized mobile games. 
+We also provide helpful blog content for users who want to understand and enjoy casual gaming.
+</p>
+
+<p>
+You can explore our <a href="blog.html">blog section</a> for guides, tips, and useful information about relaxing games.
+</p>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
 
-    <p>© 2026 SavyChamp. All rights reserved.</p>
+<p>© 2026 SavyChamp</p>
 
-    <p>
-        <a href="about.html">About Us</a> |
-        <a href="blog.html">Blog</a> |
-        <a href="contact.html">Contact</a> |
-        <a href="privacy-policy.html">Privacy Policy</a> |
-        <a href="terms.html">Terms</a> |
-        <a href="disclaimer.html">Disclaimer</a>
-    </p>
+<p>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="terms.html">Terms</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact.html">Contact</a>
+</p>
 
 </footer>
 

@@ -1,110 +1,271 @@
-<!-- ===== TRUST FOOTER START ===== -->
+<!-- ===== SAVYCHAMP PREMIUM FOOTER START ===== -->
 
 <style>
+
 .footer{
-    background:#ffffff;
-    margin-top:50px;
-    padding:30px 15px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    background:linear-gradient(180deg,#ffffff,#f8fafc);
+    margin-top:60px;
+    padding:45px 20px 25px;
+    border-top:1px solid #e5e7eb;
+    border-radius:18px 18px 0 0;
+    box-shadow:0 -4px 18px rgba(0,0,0,0.04);
     text-align:center;
+    overflow:hidden;
 }
 
-/* 🔥 LOGO */
+/* LOGO */
+
 .footer-logo{
-    width:80px;
-    margin-bottom:12px;
+    width:90px;
+    margin-bottom:14px;
+    border-radius:18px;
 }
 
-/* TEXT */
-.footer p{
-    margin:8px auto;
-    color:#555;
-    max-width:700px;
-    line-height:1.6;
+/* BRAND TITLE */
+
+.footer-title{
+    font-size:26px;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:10px;
+}
+
+/* ABOUT TEXT */
+
+.footer-description{
+    margin:10px auto 20px;
+    color:#4b5563;
+    max-width:760px;
+    line-height:1.8;
+    font-size:15px;
+}
+
+/* INFO BOXES */
+
+.footer-info{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:20px;
+    margin-bottom:25px;
+}
+
+.footer-info-box{
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    padding:12px 18px;
+    border-radius:12px;
     font-size:14px;
-}
-
-/* LINKS */
-.footer-links{
-    margin-top:12px;
-    font-size:14px;
-}
-
-.footer-links a{
-    margin:0 6px;
-    text-decoration:none;
-    color:#2563eb;
+    color:#374151;
+    box-shadow:0 2px 8px rgba(0,0,0,0.04);
 }
 
 /* SOCIAL */
+
 .footer-social{
-    margin-top:12px;
+    margin-top:18px;
 }
 
 .footer-social a{
+    display:inline-block;
+    margin:6px;
+    padding:10px 16px;
+    border-radius:10px;
+    background:#111827;
+    color:#ffffff;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.footer-social a:hover{
+    transform:translateY(-2px);
+    opacity:0.9;
+}
+
+/* NAVIGATION */
+
+.footer-links{
+    margin-top:28px;
+    line-height:2.2;
+}
+
+.footer-links a{
     margin:0 8px;
     text-decoration:none;
-    color:#1e293b;
+    color:#2563eb;
     font-size:14px;
+    transition:0.3s;
+}
+
+.footer-links a:hover{
+    color:#1d4ed8;
+}
+
+/* EXTRA TRUST */
+
+.footer-extra{
+    margin-top:25px;
+    color:#6b7280;
+    font-size:14px;
+    line-height:1.7;
 }
 
 /* COPYRIGHT */
+
 .footer small{
     display:block;
-    margin-top:15px;
-    color:#777;
+    margin-top:25px;
+    color:#9ca3af;
     font-size:13px;
 }
 
 /* MOBILE */
-@media (max-width:600px){
+
+@media (max-width:700px){
+
     .footer{
-        padding:20px 10px;
+        padding:35px 15px 20px;
     }
-    .footer p{
+
+    .footer-title{
+        font-size:22px;
+    }
+
+    .footer-description{
+        font-size:14px;
+    }
+
+    .footer-links a{
+        display:inline-block;
+        margin:5px 6px;
+    }
+
+    .footer-social a{
+        padding:9px 14px;
         font-size:13px;
     }
+
 }
+
 </style>
 
 <footer class="footer">
 
-<!-- 🔥 LOGO -->
-<img src="logo.png" alt="SavyChamp Logo" class="footer-logo">
+<!-- LOGO -->
+
+<img src="logo.png" alt="SavyChamp Official Logo" class="footer-logo">
+
+<!-- BRAND -->
+
+<h2 class="footer-title">SavyChamp</h2>
 
 <!-- ABOUT -->
-<p>
-SavyChamp is an independent Indian game development platform focused on creating simple, lightweight, and relaxing mobile games.
-Our goal is to deliver smooth performance, clean design, and stress-free gameplay experiences that work on all devices, including low-end phones.
+
+<p class="footer-description">
+SavyChamp is an independent Indian mobile game studio focused on creating relaxing, lightweight, and enjoyable offline gaming experiences.
+We build casual games with clean visuals, smooth performance, creative gameplay mechanics, and low-end device optimization so everyone can enjoy gaming without stress.
 </p>
 
-<!-- CONTACT -->
-<p><strong>Support Email:</strong> contact@savychamp.com</p>
+<!-- INFO BOXES -->
 
-<!-- DEVELOPER -->
-<p><strong>Developer:</strong> SavyChamp Studio, India</p>
+<div class="footer-info">
+
+    <div class="footer-info-box">
+        🎮 Casual Offline Games
+    </div>
+
+    <div class="footer-info-box">
+        📱 Low-End Device Friendly
+    </div>
+
+    <div class="footer-info-box">
+        🚀 Regular Game Updates
+    </div>
+
+    <div class="footer-info-box">
+        🇮🇳 Indie Game Studio
+    </div>
+
+</div>
+
+<!-- CONTACT -->
+
+<div class="footer-extra">
+
+    <p>
+        <strong>Support Email:</strong>
+        contact@savychamp.com
+    </p>
+
+    <p>
+        <strong>Developer:</strong>
+        SavyChamp Studio, India
+    </p>
+
+</div>
 
 <!-- SOCIAL LINKS -->
+
 <div class="footer-social">
-<a href="https://play.google.com/" target="_blank">Play Store</a>
-<a href="https://www.youtube.com/" target="_blank">YouTube</a>
-<a href="https://twitter.com/" target="_blank">Twitter</a>
+
+    <a href="https://play.google.com/" target="_blank">
+        Play Store
+    </a>
+
+    <a href="https://www.youtube.com/" target="_blank">
+        YouTube
+    </a>
+
+    <a href="https://twitter.com/" target="_blank">
+        Twitter
+    </a>
+
 </div>
 
 <!-- NAV LINKS -->
+
 <div class="footer-links">
-<a href="index.html">Home</a> |
-<a href="about.html">About</a> |
-<a href="blog.html">Blog</a> |
-<a href="contact.html">Contact</a> |
-<a href="privacy-policy.html">Privacy Policy</a> |
-<a href="terms.html">Terms</a> |
-<a href="disclaimer.html">Disclaimer</a>
+
+    <a href="index.html">Home</a>
+
+    <a href="about.html">About</a>
+
+    <a href="games.html">Games</a>
+
+    <a href="updates.html">Updates</a>
+
+    <a href="blog.html">Blog</a>
+
+    <a href="contact.html">Contact</a>
+
+    <a href="privacy-policy.html">Privacy Policy</a>
+
+    <a href="terms.html">Terms</a>
+
+    <a href="disclaimer.html">Disclaimer</a>
+
+    <a href="cookie-policy.html">Cookie Policy</a>
+
 </div>
 
-<small>© 2026 SavyChamp. All rights reserved.</small>
+<!-- TRUST TEXT -->
+
+<div class="footer-extra">
+
+    <p>
+        All games, graphics, logos, screenshots, and written content published on this website are original creations by SavyChamp unless otherwise stated.
+    </p>
+
+</div>
+
+<!-- COPYRIGHT -->
+
+<small>
+© 2026 SavyChamp. All rights reserved.
+</small>
 
 </footer>
 
-<!-- ===== TRUST FOOTER END ===== -->
+<!-- ===== SAVYCHAMP PREMIUM FOOTER END ===== -->

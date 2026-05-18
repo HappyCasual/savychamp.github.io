@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SavyChamp Games</title>
+<title>SavyChamp Games - Simple & Relaxing Mobile Games</title>
+
+<meta name="description" content="Discover simple, smooth, and relaxing mobile games by SavyChamp. Play casual games designed for stress-free experience.">
 
 <style>
-
 body{
-    font-family:Segoe UI,Roboto,sans-serif;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
     background:#f8f9fa;
-    color:#2c3e50;
+    color:#1f2937;
     margin:0;
 }
 
-/* SECTION */
 section{
     max-width:1100px;
     margin:60px auto;
@@ -27,56 +27,54 @@ section{
     text-align:center;
     margin-top:40px;
 }
-
 .hero h1{
-    font-size:36px;
+    font-size:38px;
 }
-
 .hero p{
     color:#6b7280;
+    margin-top:10px;
 }
 
 /* FEATURED */
 .featured-card{
     display:flex;
     gap:30px;
-    background:#f1f5f9;
+    background:white;
     padding:30px;
     border-radius:16px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.05);
     align-items:center;
 }
 
 .featured-right img{
     width:80px;
     border-radius:10px;
-    margin-right:10px;
 }
 
 /* GRID */
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
 }
 
+/* CARD */
 .card{
     background:white;
     padding:20px;
     border-radius:14px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+    box-shadow:0 4px 15px rgba(0,0,0,0.05);
     transition:0.3s;
 }
-
 .card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-6px);
 }
-
 .card img{
     width:100%;
     border-radius:10px;
 }
 
-/* BUTTON */
+/* BUTTONS */
 .btn{
     display:inline-block;
     margin-top:10px;
@@ -85,29 +83,43 @@ section{
     color:white;
     border-radius:8px;
     text-decoration:none;
+    font-weight:600;
 }
 
-/* POPULAR */
-.banner{
-    background:#2563eb;
+.upcoming-btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 18px;
+    background:#9ca3af;
     color:white;
-    padding:25px;
+    border-radius:8px;
+    font-weight:600;
+    cursor:not-allowed;
+}
+
+/* BANNER */
+.banner{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:white;
+    padding:30px;
     border-radius:16px;
 }
 
 /* FEATURES */
 .small div{
-    background:#e0e7ff;
-    padding:15px;
-    border-radius:10px;
+    background:white;
+    padding:20px;
+    border-radius:12px;
     text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
 }
 
 /* WHY */
 .why-box{
-    background:#f8fafc;
+    background:white;
     padding:25px;
     border-radius:14px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
 }
 
 /* CONTACT */
@@ -115,34 +127,22 @@ section{
     background:white;
     padding:30px;
     border-radius:16px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.05);
     text-align:center;
-}
-
-.contact-text{
-    color:#4b5563;
-    margin-bottom:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
 }
 
 .email-box{
     background:#2563eb;
     color:white;
-    padding:15px;
-    border-radius:10px;
-    font-size:16px;
-    font-weight:600;
+    padding:12px 18px;
+    border-radius:8px;
     display:inline-block;
+    margin-top:10px;
 }
 
 .email-box a{
     color:white;
     text-decoration:none;
-}
-
-.contact-note{
-    margin-top:15px;
-    font-size:14px;
-    color:#6b7280;
 }
 
 /* MOBILE */
@@ -152,33 +152,31 @@ section{
         text-align:center;
     }
 }
-
 </style>
 
 </head>
 
 <body>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero">
 <h1>SavyChamp Games</h1>
-<p>Simple • Smooth • Relaxing Mobile Experiences</p>
+<p>Simple • Smooth • Stress-Free Mobile Experiences</p>
 </section>
 
-
-<!-- ===== FEATURED ===== -->
-<section class="featured">
+<!-- FEATURED -->
+<section>
 <div class="featured-card">
 
-<div class="featured-left">
+<div>
 <h2>🌟 Featured Game</h2>
 <h3>Arrows Paint ASMR</h3>
 
 <p>
-A carefully designed arrow puzzle experience focused on precision, smooth animation, and visual satisfaction.
+A relaxing puzzle experience designed for smooth gameplay and satisfying visuals.
 </p>
 
-<a href="arrows-paint.html" class="btn">Play Now</a>
+<a href="arrows-paint.html" class="btn">▶ Play Now</a>
 </div>
 
 <div class="featured-right">
@@ -190,32 +188,31 @@ A carefully designed arrow puzzle experience focused on precision, smooth animat
 </div>
 </section>
 
+<!-- ALL GAMES -->
+<section>
 
-<!-- ===== ALL GAMES ===== -->
-<section class="games">
-
-<h2>🎮 All Games</h2>
+<h2>🎮 Explore Games</h2>
 
 <div class="grid">
 
 <div class="card">
 <img src="arrows-paint-1.png">
 <h3>Arrows Paint</h3>
-<p>Arrow-based color puzzle with relaxing gameplay.</p>
+<p>Relaxing arrow puzzle gameplay.</p>
 <a href="arrows-paint.html" class="btn">Play</a>
 </div>
 
 <div class="card">
 <img src="tamcall-1.png">
-<h3>Tamcall (Tambola Caller)</h3>
-<p>Smart tambola caller designed for smooth gameplay.</p>
+<h3>Tamcall</h3>
+<p>Smart Tambola caller for events.</p>
 <a href="tamcall.html" class="btn">Play</a>
 </div>
 
 <div class="card">
 <img src="jig-cards-1.png">
-<h3>Jigcards Multiart</h3>
-<p>Creative card-based puzzle with beautiful visuals.</p>
+<h3>Jig Cards</h3>
+<p>Creative jigsaw puzzle experience.</p>
 <a href="jig-cards.html" class="btn">Play</a>
 </div>
 
@@ -223,24 +220,22 @@ A carefully designed arrow puzzle experience focused on precision, smooth animat
 
 </section>
 
-
-<!-- ===== POPULAR ===== -->
-<section class="popular">
+<!-- POPULAR -->
+<section>
 <div class="banner">
 
 <h2>⭐ Popular Game</h2>
 <h3>Arrows Paint ASMR</h3>
 
 <p>
-One of our most played puzzle games focused on precision, timing, and satisfying visual feedback.
+Highly engaging puzzle experience with smooth interaction and satisfying gameplay.
 </p>
 
 </div>
 </section>
 
-
-<!-- ===== UPCOMING ===== -->
-<section class="upcoming">
+<!-- UPCOMING -->
+<section>
 
 <h2>🚀 Upcoming Games</h2>
 
@@ -248,74 +243,65 @@ One of our most played puzzle games focused on precision, timing, and satisfying
 
 <div class="card">
 <h3>Love Merge</h3>
-<p>New merge mechanics with smooth progression.</p>
+<p>Relaxing merge puzzle game.</p>
+<div class="upcoming-btn">🚧 Coming Soon</div>
 </div>
 
 <div class="card">
 <h3>Emoji Sentence</h3>
-<p>Creative emoji puzzle challenges.</p>
+<p>Fun emoji puzzle challenges.</p>
+<div class="upcoming-btn">🚧 Coming Soon</div>
 </div>
 
 </div>
 
 </section>
 
+<!-- FEATURES -->
+<section>
 
-<!-- ===== FEATURES ===== -->
-<section class="features">
-
-<h2>✨ Game Features</h2>
+<h2>✨ Features</h2>
 
 <div class="grid small">
 <div>⚡ Fast Performance</div>
-<div>📱 Works on all devices</div>
-<div>📶 Offline Friendly</div>
+<div>📱 All Devices Support</div>
+<div>📶 Offline Ready</div>
 <div>🎮 Simple Gameplay</div>
 </div>
 
 </section>
 
-
-<!-- ===== WHY USERS ===== -->
-<section class="why">
+<!-- WHY -->
+<section>
 <div class="why-box">
 
-<h2>🧠 Why Players Enjoy SavyChamp</h2>
+<h2>🧠 Why Choose SavyChamp?</h2>
 
 <p>
-SavyChamp games focus on simplicity, smooth performance, and relaxing gameplay experiences.
+We design games focused on simplicity, smooth interaction, and stress-free experiences. Our goal is to create games that users enjoy anytime without complexity.
 </p>
 
 </div>
 </section>
 
-
-<!-- ===== CONTACT (GMAIL DIRECT OPEN) ===== -->
-<section class="contact">
-
+<!-- CONTACT -->
+<section>
 <div class="contact-card">
 
 <h2>📩 Contact Us</h2>
 
-<p class="contact-text">
-For support, feedback, or business inquiries, feel free to contact us directly.
-We usually respond within 24–48 hours.
+<p>
+For support or business inquiries, feel free to reach out.
 </p>
 
 <div class="email-box">
-<a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@savychamp.com&su=Support Request&body=Hello SavyChamp Team," target="_blank">
+<a href="mailto:contact@savychamp.com">
 📧 contact@savychamp.com
 </a>
 </div>
 
-<p class="contact-note">
-Click the email above to open Gmail directly and send your message.
-</p>
-
 </div>
-
 </section>
-
 
 </body>
 </html>

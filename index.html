@@ -1,34 +1,58 @@
-<!-- ===== SAVYCHAMP MODERN FOOTER ===== -->
+<!-- ===== SAVYCHAMP UNIQUE FOOTER ===== -->
 
 <style>
 
 .footer{
-    background:linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
-    margin-top:70px;
-    padding:50px 20px 20px;
-    color:#ffffff;
+    margin-top:80px;
+    border-radius:20px 20px 0 0;
+    overflow:hidden;
 }
 
-/* GRID LAYOUT */
+/* 🔥 TOP STRIP (UNIQUE FEATURE) */
+
+.footer-top{
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+}
+
+.footer-top h2{
+    font-size:24px;
+    margin-bottom:8px;
+}
+
+.footer-top p{
+    font-size:14px;
+    opacity:0.9;
+}
+
+/* 🔥 MAIN AREA */
+
+.footer-main{
+    background:#0f172a;
+    color:white;
+    padding:50px 20px;
+}
 
 .footer-container{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:30px;
+    grid-template-columns:1.2fr 1fr;
+    gap:40px;
     max-width:1100px;
     margin:auto;
 }
 
-/* BRAND SECTION */
+/* LEFT SIDE (BRAND STORY) */
 
 .footer-brand img{
-    width:70px;
+    width:80px;
     border-radius:16px;
     margin-bottom:12px;
 }
 
-.footer-brand h2{
-    font-size:22px;
+.footer-brand h3{
+    font-size:20px;
     margin-bottom:10px;
 }
 
@@ -38,11 +62,17 @@
     line-height:1.7;
 }
 
-/* HEADINGS */
+/* RIGHT SIDE */
 
-.footer h3{
-    font-size:16px;
-    margin-bottom:12px;
+.footer-right{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.footer h4{
+    font-size:15px;
+    margin-bottom:10px;
 }
 
 /* LINKS */
@@ -58,7 +88,7 @@
 
 .footer-links a:hover{
     color:#ffffff;
-    padding-left:4px;
+    transform:translateX(3px);
 }
 
 /* CONTACT */
@@ -71,60 +101,82 @@
 
 /* SOCIAL */
 
+.footer-social{
+    margin-top:10px;
+}
+
 .footer-social a{
     display:inline-block;
     margin:5px;
-    padding:8px 14px;
+    padding:8px 12px;
     border-radius:8px;
-    background:#ffffff;
-    color:#1e293b;
+    background:#2563eb;
+    color:white;
     text-decoration:none;
     font-size:13px;
     transition:0.3s;
 }
 
 .footer-social a:hover{
-    background:#e0e7ff;
+    background:#1d4ed8;
     transform:translateY(-2px);
 }
 
 /* BOTTOM */
 
 .footer-bottom{
-    margin-top:35px;
-    text-align:center;
-    border-top:1px solid rgba(255,255,255,0.1);
-    padding-top:15px;
-    font-size:13px;
+    background:#020617;
     color:#94a3b8;
+    text-align:center;
+    padding:14px;
+    font-size:13px;
 }
 
 /* MOBILE */
 
-@media(max-width:600px){
-    .footer{
-        text-align:center;
-    }
+@media(max-width:700px){
+
+.footer-container{
+    grid-template-columns:1fr;
+}
+
+.footer-right{
+    grid-template-columns:1fr;
+}
+
 }
 
 </style>
 
 <footer class="footer">
 
+<!-- 🔥 UNIQUE TOP STRIP -->
+<div class="footer-top">
+<h2>SavyChamp Gaming</h2>
+<p>Simple Games • Smooth Experience • Real Relaxation</p>
+</div>
+
+<!-- MAIN -->
+<div class="footer-main">
+
 <div class="footer-container">
 
-<!-- BRAND -->
+<!-- LEFT -->
 <div class="footer-brand">
 <img src="logo.png">
-<h2>SavyChamp</h2>
+<h3>About SavyChamp</h3>
 <p>
-SavyChamp builds simple, relaxing, and smooth mobile games designed for stress-free gameplay and performance across all devices.
+SavyChamp is an independent gaming platform focused on creating lightweight and relaxing mobile games. 
+Our goal is to deliver smooth, simple, and enjoyable gameplay experiences that work across all devices without complexity.
 </p>
 </div>
 
-<!-- NAVIGATION -->
+<!-- RIGHT -->
+<div class="footer-right">
+
+<!-- NAV -->
 <div>
-<h3>Explore</h3>
+<h4>Explore</h4>
 <div class="footer-links">
 <a href="index.html">Home</a>
 <a href="games.html">Games</a>
@@ -134,25 +186,28 @@ SavyChamp builds simple, relaxing, and smooth mobile games designed for stress-f
 </div>
 </div>
 
-<!-- LEGAL -->
+<!-- LEGAL + CONTACT -->
 <div>
-<h3>Legal</h3>
+
+<h4>Legal</h4>
 <div class="footer-links">
 <a href="privacy-policy.html">Privacy Policy</a>
 <a href="terms.html">Terms</a>
 <a href="disclaimer.html">Disclaimer</a>
 </div>
-</div>
 
-<!-- CONTACT -->
-<div class="footer-contact">
-<h3>Contact</h3>
-<p>Email: contact@savychamp.com</p>
-<p>Developer: SavyChamp Studio</p>
+<div class="footer-contact" style="margin-top:15px;">
+<p><strong>Email:</strong> contact@savychamp.com</p>
+<p><strong>Developer:</strong> SavyChamp Studio</p>
+</div>
 
 <div class="footer-social">
 <a href="https://play.google.com/store/apps/developer?id=SavyChamp&hl=en_IN" target="_blank">Play Store</a>
 <a href="https://youtube.com/@savychamp?si=D1oR90iUzGXsvXT8" target="_blank">YouTube</a>
+</div>
+
+</div>
+
 </div>
 
 </div>

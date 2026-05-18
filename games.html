@@ -183,7 +183,7 @@ SavyChamp creates lightweight mobile games focused on smooth performance and str
 
 </div>
 
-<!-- 🔥 POPULAR (FIXED 9:16) -->
+<!-- POPULAR -->
 <h2>🔥 Popular Games</h2>
 
 <div class="grid">
@@ -195,7 +195,7 @@ SavyChamp creates lightweight mobile games focused on smooth performance and str
 <img src="arrows-paint-3.png">
 </div>
 <h3>Arrows Paint ASMR</h3>
-<p>Highly popular for its relaxing and smooth gameplay.</p>
+<p>Highly popular for its relaxing gameplay.</p>
 <a href="arrows-paint.html" class="btn">Play Now</a>
 </div>
 
@@ -206,7 +206,7 @@ SavyChamp creates lightweight mobile games focused on smooth performance and str
 <img src="jig-cards-3.png">
 </div>
 <h3>Jigcards Multiart Jigsaw</h3>
-<p>Popular puzzle game with creative and engaging design.</p>
+<p>Popular puzzle game with creative design.</p>
 <a href="jig-cards.html" class="btn">Play Now</a>
 </div>
 
@@ -224,9 +224,25 @@ SavyChamp creates lightweight mobile games focused on smooth performance and str
 <h2>📩 Newsletter</h2>
 
 <div class="card">
-<input type="email" placeholder="Enter your email" style="padding:10px;width:70%;">
-<button class="btn">Subscribe</button>
+<input type="email" id="emailInput" placeholder="Enter your email" style="padding:10px;width:70%;">
+<button class="btn" onclick="subscribe()">Subscribe</button>
 </div>
+
+<!-- SCRIPT -->
+<script>
+function subscribe(){
+    const email = document.getElementById("emailInput").value;
+
+    if(email === "" || !email.includes("@")){
+        alert("Please enter a valid email address");
+        return;
+    }
+
+    alert("Thank you for subscribing!");
+
+    document.getElementById("emailInput").value = "";
+}
+</script>
 
 <!-- FOOTER -->
 <footer style="margin-top:60px;text-align:center;">

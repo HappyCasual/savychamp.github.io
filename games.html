@@ -1,30 +1,28 @@
-<!-- ===== HERO ===== -->
 
+<!-- ===== HERO ===== -->
 <section class="hero">
 <h1>SavyChamp Games</h1>
 <p>Simple • Smooth • Relaxing Mobile Experiences</p>
 </section>
 
 
-<!-- ===== FEATURED GAME (BIG HIGHLIGHT) ===== -->
-
+<!-- ===== FEATURED ===== -->
 <section class="featured">
 
-<div class="featured-box">
+<div class="featured-card">
 
-<div class="featured-text">
+<div class="featured-left">
 <h2>🌟 Featured Game</h2>
 <h3>Arrows Paint ASMR</h3>
 
 <p>
-A carefully designed arrow puzzle experience focused on precision, smooth animation, and visual satisfaction. 
-Each level delivers a calming flow that helps players relax while staying engaged.
+A carefully designed arrow puzzle experience focused on precision, smooth animation, and visual satisfaction.
 </p>
 
 <a href="arrows-paint.html" class="btn">Play Now</a>
 </div>
 
-<div class="featured-images">
+<div class="featured-right">
 <img src="arrows-paint-1.png">
 <img src="arrows-paint-2.png">
 <img src="arrows-paint-3.png">
@@ -35,43 +33,31 @@ Each level delivers a calming flow that helps players relax while staying engage
 </section>
 
 
-<!-- ===== ALL GAMES (HORIZONTAL STYLE) ===== -->
-
+<!-- ===== ALL GAMES (GRID STYLE) ===== -->
 <section class="games">
 
 <h2>🎮 All Games</h2>
 
-<div class="game-row">
+<div class="grid">
 
+<div class="card">
 <img src="arrows-paint-1.png">
-
-<div>
-<h3>Arrows Paint ASMR</h3>
+<h3>Arrows Paint</h3>
 <p>Arrow-based color puzzle with relaxing gameplay.</p>
 <a href="arrows-paint.html">Play →</a>
 </div>
 
-</div>
-
-<div class="game-row">
-
+<div class="card">
 <img src="tamcall-1.png">
-
-<div>
-<h3>Tamcall (Tambola Caller)</h3>
-<p>Smart number caller designed for smooth and fair gameplay.</p>
+<h3>Tamcall</h3>
+<p>Smart tambola caller for smooth gameplay.</p>
 <a href="tamcall.html">Play →</a>
 </div>
 
-</div>
-
-<div class="game-row">
-
+<div class="card">
 <img src="jig-cards-1.png">
-
-<div>
-<h3>Jigcards Multiart</h3>
-<p>Creative card-based puzzle with visually rich artwork.</p>
+<h3>Jigcards</h3>
+<p>Creative card puzzle with beautiful visuals.</p>
 <a href="jig-cards.html">Play →</a>
 </div>
 
@@ -80,19 +66,17 @@ Each level delivers a calming flow that helps players relax while staying engage
 </section>
 
 
-<!-- ===== POPULAR GAMES (FOCUS STYLE) ===== -->
-
+<!-- ===== POPULAR ===== -->
 <section class="popular">
 
-<h2>⭐ Popular Games</h2>
+<div class="banner">
 
-<div class="highlight">
+<h2>⭐ Popular Game</h2>
 
 <h3>Arrows Paint ASMR</h3>
 
 <p>
-One of our most played puzzle games focused on precision, timing, and satisfying visual feedback. 
-Designed for players who enjoy smooth interactions and relaxing gameplay loops.
+One of our most played puzzle games focused on precision, timing, and satisfying visual feedback.
 </p>
 
 </div>
@@ -101,21 +85,20 @@ Designed for players who enjoy smooth interactions and relaxing gameplay loops.
 
 
 <!-- ===== UPCOMING ===== -->
-
 <section class="upcoming">
 
 <h2>🚀 Upcoming Games</h2>
 
-<div class="mini-grid">
+<div class="grid">
 
-<div>
+<div class="card">
 <h3>Love Merge</h3>
-<p>New merge mechanics with smoother progression and relaxing gameplay.</p>
+<p>New merge mechanics with smooth progression.</p>
 </div>
 
-<div>
+<div class="card">
 <h3>Emoji Sentence</h3>
-<p>Creative emoji-based puzzles with fun and engaging challenges.</p>
+<p>Creative emoji puzzle challenges.</p>
 </div>
 
 </div>
@@ -124,43 +107,42 @@ Designed for players who enjoy smooth interactions and relaxing gameplay loops.
 
 
 <!-- ===== FEATURES ===== -->
-
 <section class="features">
 
 <h2>✨ Game Features</h2>
 
-<ul>
-<li>✔ Lightweight and fast performance</li>
-<li>✔ Smooth gameplay experience</li>
-<li>✔ Works on low-end devices</li>
-<li>✔ Offline-friendly design</li>
-<li>✔ Simple and clean UI</li>
-</ul>
+<div class="grid small">
+
+<div>⚡ Fast Performance</div>
+<div>📱 Works on all devices</div>
+<div>📶 Offline Friendly</div>
+<div>🎮 Simple Gameplay</div>
+
+</div>
 
 </section>
 
 
 <!-- ===== WHY USERS ===== -->
-
 <section class="why">
+
+<div class="why-box">
 
 <h2>🧠 Why Players Enjoy SavyChamp</h2>
 
 <p>
-SavyChamp games are built for simplicity and comfort. Players prefer these games because they are easy to understand, 
-quick to load, and provide consistent performance across devices.
+SavyChamp games focus on simplicity, smooth performance, and relaxing gameplay experiences.
 </p>
 
-<p>
-The focus is always on delivering a smooth and relaxing experience rather than complex or competitive gameplay.
-</p>
+</div>
 
 </section>
 
 
 <!-- ===== CONTACT ===== -->
-
 <section class="contact">
+
+<div class="contact-card">
 
 <h2>📩 Contact</h2>
 
@@ -168,6 +150,8 @@ The focus is always on delivering a smooth and relaxing experience rather than c
 <textarea id="messageInput" placeholder="Write your message..."></textarea>
 
 <button onclick="subscribe()">Send Message</button>
+
+</div>
 
 </section>
 
@@ -177,64 +161,80 @@ The focus is always on delivering a smooth and relaxing experience rather than c
 <style>
 
 section{
-    margin:50px auto;
-    max-width:1000px;
+    max-width:1100px;
+    margin:60px auto;
 }
 
 /* HERO */
-
 .hero{
     text-align:center;
-    margin-top:30px;
 }
 
 /* FEATURED */
-
-.featured-box{
+.featured-card{
     display:flex;
     gap:30px;
-    align-items:center;
+    background:#f1f5f9;
+    padding:30px;
+    border-radius:16px;
 }
 
-.featured-images img{
-    width:100px;
-    border-radius:10px;
-    margin-right:10px;
-}
-
-/* GAME ROW */
-
-.game-row{
-    display:flex;
-    gap:20px;
-    align-items:center;
-    margin-bottom:20px;
-}
-
-.game-row img{
+.featured-right img{
     width:80px;
     border-radius:10px;
 }
 
-/* POPULAR */
-
-.highlight{
-    background:#f1f5f9;
-    padding:20px;
-    border-radius:12px;
-}
-
-/* UPCOMING */
-
-.mini-grid{
+/* GRID */
+.grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
 }
 
-/* CONTACT */
+.card{
+    background:white;
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
 
-.contact input, .contact textarea{
+.card img{
+    width:100%;
+    border-radius:10px;
+}
+
+/* POPULAR */
+.banner{
+    background:#2563eb;
+    color:white;
+    padding:25px;
+    border-radius:16px;
+}
+
+/* FEATURES */
+.small div{
+    background:#e0e7ff;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+}
+
+/* WHY */
+.why-box{
+    background:#f8fafc;
+    padding:25px;
+    border-radius:14px;
+}
+
+/* CONTACT */
+.contact-card{
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+input, textarea{
     width:100%;
     padding:12px;
     margin-bottom:10px;
@@ -243,7 +243,7 @@ section{
 }
 
 button{
-    padding:12px 20px;
+    padding:12px;
     background:#2563eb;
     color:white;
     border:none;

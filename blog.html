@@ -12,22 +12,14 @@
 <link rel="canonical" href="https://savychamp.com/blog.html">
 
 <style>
-:root {
-    --primary:#2563eb;
-    --text:#1f2937;
-    --muted:#6b7280;
-    --bg:#f3f4f6;
-    --card:#ffffff;
-}
-
 body{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    background:var(--bg);
-    color:var(--text);
+    background:#f3f4f6;
+    color:#1f2937;
     line-height:1.7;
-    max-width:1000px;
+    max-width:900px;
     margin:auto;
-    padding:25px;
+    padding:20px;
 }
 
 /* NAV */
@@ -37,43 +29,38 @@ body{
     margin-bottom:20px;
 }
 
-.nav a{
-    text-decoration:none;
-    color:var(--primary);
-    font-weight:600;
-}
-
 /* HERO */
 .hero{
     background:white;
-    padding:30px;
-    border-radius:14px;
-    margin-bottom:30px;
+    padding:25px;
+    border-radius:12px;
 }
 
 /* SECTION */
 .section{
-    margin-top:40px;
+    margin-top:35px;
 }
 
-/* CARD */
-.card{
-    background:var(--card);
-    padding:20px;
+/* LIST STYLE */
+.list{
+    background:white;
     border-radius:12px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.05);
-    margin-bottom:15px;
+    padding:10px 20px;
 }
 
-/* BUTTON */
-.btn{
-    display:inline-block;
-    margin-top:8px;
-    padding:6px 12px;
-    background:var(--primary);
-    color:white;
-    border-radius:6px;
+.list-item{
+    padding:15px 0;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.list-item:last-child{
+    border-bottom:none;
+}
+
+.list-item a{
     text-decoration:none;
+    color:#2563eb;
+    font-weight:600;
 }
 
 /* TRUST */
@@ -88,22 +75,12 @@ body{
     background:white;
     padding:20px;
     border-radius:12px;
-    margin-top:30px;
-}
-
-/* AUTHOR */
-.author{
-    margin-top:30px;
-    padding:20px;
-    background:white;
-    border-radius:12px;
 }
 
 /* FOOTER */
 footer{
-    margin-top:60px;
+    margin-top:50px;
     text-align:center;
-    color:#555;
 }
 </style>
 </head>
@@ -119,14 +96,10 @@ footer{
 
 <!-- HERO -->
 <div class="hero">
-<h1>SavyChamp Gaming Blog</h1>
+<h1>SavyChamp Blog</h1>
 
 <p>
-Welcome to SavyChamp — a trusted platform for casual gaming insights, offline gaming strategies, and mobile optimization tips.
-</p>
-
-<p>
-All our articles are based on real testing, user experience, and practical knowledge. Our goal is to provide useful, honest, and easy-to-understand content.
+Welcome to SavyChamp — your trusted platform for casual gaming insights, offline game strategies, and mobile optimization techniques.
 </p>
 </div>
 
@@ -134,110 +107,96 @@ All our articles are based on real testing, user experience, and practical knowl
 <div class="section">
 <h2>🌟 Featured Article</h2>
 
-<div class="card">
-<h3>Best Relaxing Games for Stress-Free Gaming</h3>
-<p>Discover how simple mobile games can improve focus and reduce stress in daily life.</p>
-<a href="blog-best-relaxing-games.html" class="btn">Read Full Guide</a>
+<div class="list">
+<div class="list-item">
+<a href="blog-best-relaxing-games.html">Best Relaxing Games for Stress-Free Gaming</a>
+<p>Discover how simple mobile games reduce stress and improve focus.</p>
+</div>
 </div>
 </div>
 
-<!-- CASUAL GAMING -->
+<!-- CASUAL -->
 <div class="section">
 <h2>🎮 Casual Gaming</h2>
 
-<div class="card">
-<h3>Simple Mobile Games Popularity</h3>
-<a href="blog-simple-mobile-games-popular.html" class="btn">Read</a>
+<div class="list">
+<div class="list-item">
+<a href="blog-simple-mobile-games-popular.html">Simple Mobile Games Popularity</a>
 </div>
 
-<div class="card">
-<h3>Hyper Casual Games</h3>
-<a href="blog-hyper-casual-games.html" class="btn">Read</a>
+<div class="list-item">
+<a href="blog-hyper-casual-games.html">Hyper Casual Games</a>
 </div>
 
-<div class="card">
-<h3>Future of Casual Games</h3>
-<a href="blog-future-of-casual-mobile-games.html" class="btn">Read</a>
+<div class="list-item">
+<a href="blog-future-of-casual-mobile-games.html">Future of Casual Games</a>
 </div>
-
+</div>
 </div>
 
 <!-- RELAXATION -->
 <div class="section">
 <h2>📶 Relaxation & Offline</h2>
 
-<div class="card">
-<h3>Why Offline Games Are Best</h3>
-<a href="blog-why-offline-games-are-best.html" class="btn">Read</a>
+<div class="list">
+<div class="list-item">
+<a href="blog-why-offline-games-are-best.html">Why Offline Games Are Best</a>
 </div>
 
-<div class="card">
-<h3>How to Relax with Games</h3>
-<a href="how-to-relax-with-games.html" class="btn">Read</a>
+<div class="list-item">
+<a href="how-to-relax-with-games.html">How to Relax with Games</a>
 </div>
 
-<div class="card">
-<h3>Benefits of Simple Games</h3>
-<a href="simple-games-benefits.html" class="btn">Read</a>
+<div class="list-item">
+<a href="simple-games-benefits.html">Benefits of Simple Games</a>
 </div>
-
+</div>
 </div>
 
 <!-- OPTIMIZATION -->
 <div class="section">
 <h2>⚙️ Mobile Optimization</h2>
 
-<div class="card">
-<h3>Mobile Optimization Guide</h3>
-<a href="blog-mobile-optimization.html" class="btn">Read</a>
+<div class="list">
+<div class="list-item">
+<a href="blog-mobile-optimization.html">Mobile Optimization Guide</a>
 </div>
 
-<div class="card">
-<h3>Low-End Device Optimization</h3>
-<a href="blog-low-end-phone-optimization.html" class="btn">Read</a>
+<div class="list-item">
+<a href="blog-low-end-phone-optimization.html">Low-End Device Optimization</a>
 </div>
-
+</div>
 </div>
 
 <!-- DEVELOPMENT -->
 <div class="section">
 <h2>🛠 Game Development</h2>
 
-<div class="card">
-<h3>Learn Game Development</h3>
-<a href="blog-learning-to-code-games.html" class="btn">Read</a>
+<div class="list">
+<div class="list-item">
+<a href="blog-learning-to-code-games.html">Learn Game Development</a>
 </div>
 
-<div class="card">
-<h3>Python Automation</h3>
-<a href="blog-python-automation.html" class="btn">Read</a>
+<div class="list-item">
+<a href="blog-python-automation.html">Python Automation</a>
 </div>
 
-<div class="card">
-<h3>Solo Developer Journey</h3>
-<a href="blog-solo-dev-journey.html" class="btn">Read</a>
+<div class="list-item">
+<a href="blog-solo-dev-journey.html">Solo Developer Journey</a>
+</div>
+</div>
 </div>
 
-</div>
-
-<!-- CONTENT DEPTH -->
+<!-- CONTENT -->
 <div class="section">
-<h2>📚 Deep Insights on Casual Gaming</h2>
+<h2>📚 Deep Insights</h2>
 
 <p>
-Casual gaming has become an essential part of modern digital life. These games are designed to be simple, accessible, and engaging for users of all age groups.
+Casual gaming plays an important role in improving focus, reducing stress, and enhancing user experience through simple gameplay.
 </p>
 
 <p>
-Unlike complex games, casual games focus on quick interaction, relaxation, and stress relief. Research shows that short gameplay sessions can improve concentration and mental clarity.
-</p>
-
-<p>
-Offline games provide additional benefits by eliminating distractions and ensuring consistent performance, even in low-network conditions.
-</p>
-
-<p>
-At SavyChamp, we focus on creating optimized, lightweight, and enjoyable games that deliver a smooth experience across all devices.
+Offline games provide smooth performance and are ideal for distraction-free entertainment.
 </p>
 </div>
 
@@ -246,32 +205,21 @@ At SavyChamp, we focus on creating optimized, lightweight, and enjoyable games t
 <h3>Why Trust SavyChamp?</h3>
 <ul>
 <li>✔ Real gameplay testing</li>
-<li>✔ Original and useful content</li>
-<li>✔ User-focused design</li>
+<li>✔ Original content</li>
+<li>✔ User-focused approach</li>
 <li>✔ Regular updates</li>
 </ul>
 </div>
 
 <!-- FAQ -->
-<div class="faq">
-<h3>Frequently Asked Questions</h3>
+<div class="section faq">
+<h3>FAQs</h3>
 
 <p><b>Are casual games useful?</b><br>
-Yes, they help reduce stress and improve focus.</p>
+Yes, they improve focus and reduce stress.</p>
 
 <p><b>Do offline games perform better?</b><br>
-Yes, they run smoothly without internet interruptions.</p>
-
-<p><b>Is SavyChamp content reliable?</b><br>
-Yes, all content is based on real experience and testing.</p>
-</div>
-
-<!-- AUTHOR -->
-<div class="author">
-<h3>About the Author</h3>
-<p>
-Written by the SavyChamp Team — experienced in mobile game development and user experience design.
-</p>
+Yes, they run smoother.</p>
 </div>
 
 <!-- FOOTER -->
@@ -281,7 +229,7 @@ Written by the SavyChamp Team — experienced in mobile game development and use
 
 <p>
 <a href="about.html">About</a> |
-<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="privacy-policy.html">Privacy</a> |
 <a href="terms.html">Terms</a> |
 <a href="disclaimer.html">Disclaimer</a> |
 <a href="contact.html">Contact</a>

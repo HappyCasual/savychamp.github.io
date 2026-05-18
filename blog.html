@@ -61,22 +61,29 @@ body{
 /* CARD */
 .card{
     background:var(--card);
-    padding:18px;
-    border-radius:14px;
-    box-shadow:0 5px 18px rgba(0,0,0,0.06);
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
     transition:0.3s;
 }
+
 .card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-6px) scale(1.02);
 }
 
+/* 9:16 IMAGE FIX */
 .card img{
     width:100%;
-    border-radius:10px;
-    margin-bottom:10px;
+    aspect-ratio:9/16;
+    object-fit:cover;
+    background:#e5e7eb;
 }
 
-/* BUTTON */
+/* CONTENT */
+.card-content{
+    padding:15px;
+}
+
 .btn{
     display:inline-block;
     margin-top:10px;
@@ -136,14 +143,7 @@ footer{
 <!-- HERO -->
 <div class="hero">
 <h1>SavyChamp Gaming Blog</h1>
-
-<p>
-Welcome to SavyChamp — your trusted destination for casual gaming insights, offline game strategies, and mobile optimization techniques.
-</p>
-
-<p>
-All our content is created based on real gameplay testing, user experience research, and development knowledge to provide practical and useful information.
-</p>
+<p>Explore casual gaming, offline games, and mobile optimization insights based on real experience.</p>
 </div>
 
 <!-- FEATURED -->
@@ -151,10 +151,12 @@ All our content is created based on real gameplay testing, user experience resea
 <h2>🌟 Featured Article</h2>
 
 <div class="card">
-<img src="arrows-paint-1.png" alt="Relaxing Game">
+<img src="arrows-paint-1.png" alt="Relaxing Game" loading="lazy">
+<div class="card-content">
 <h3>Best Relaxing Games for Stress-Free Gaming</h3>
 <p>Discover calming mobile games that improve focus and reduce stress.</p>
 <a href="blog-best-relaxing-games.html" class="btn">Read Full Guide</a>
+</div>
 </div>
 </div>
 
@@ -165,21 +167,27 @@ All our content is created based on real gameplay testing, user experience resea
 <div class="grid">
 
 <div class="card">
-<img src="arrows-paint-2.png">
+<img src="arrows-paint-2.png" loading="lazy">
+<div class="card-content">
 <h3>Simple Mobile Games Popularity</h3>
 <a href="blog-simple-mobile-games-popular.html" class="btn">Read</a>
 </div>
-
-<div class="card">
-<img src="jig-cards-1.png">
-<h3>Hyper Casual Games</h3>
-<a href="blog-hyper-casual-games.html" class="btn">Read</a>
 </div>
 
 <div class="card">
-<img src="arrows-paint-3.png">
+<img src="jig-cards-1.png" loading="lazy">
+<div class="card-content">
+<h3>Hyper Casual Games</h3>
+<a href="blog-hyper-casual-games.html" class="btn">Read</a>
+</div>
+</div>
+
+<div class="card">
+<img src="arrows-paint-3.png" loading="lazy">
+<div class="card-content">
 <h3>Future of Casual Games</h3>
 <a href="blog-future-of-casual-mobile-games.html" class="btn">Read</a>
+</div>
 </div>
 
 </div>
@@ -187,26 +195,32 @@ All our content is created based on real gameplay testing, user experience resea
 
 <!-- RELAXATION -->
 <div class="section">
-<h2>📶 Relaxation & Offline Games</h2>
+<h2>📶 Relaxation & Offline</h2>
 
 <div class="grid">
 
 <div class="card">
-<img src="tamcall-1.png">
-<h3>Why Offline Games Are Best</h3>
+<img src="tamcall-1.png" loading="lazy">
+<div class="card-content">
+<h3>Offline Games Benefits</h3>
 <a href="blog-why-offline-games-are-best.html" class="btn">Read</a>
 </div>
-
-<div class="card">
-<img src="tamcall-2.png">
-<h3>How to Relax with Games</h3>
-<a href="how-to-relax-with-games.html" class="btn">Read</a>
 </div>
 
 <div class="card">
-<img src="tamcall-3.png">
-<h3>Benefits of Simple Games</h3>
+<img src="tamcall-2.png" loading="lazy">
+<div class="card-content">
+<h3>Relax with Games</h3>
+<a href="how-to-relax-with-games.html" class="btn">Read</a>
+</div>
+</div>
+
+<div class="card">
+<img src="tamcall-3.png" loading="lazy">
+<div class="card-content">
+<h3>Simple Games Benefits</h3>
 <a href="simple-games-benefits.html" class="btn">Read</a>
+</div>
 </div>
 
 </div>
@@ -219,59 +233,28 @@ All our content is created based on real gameplay testing, user experience resea
 <div class="grid">
 
 <div class="card">
-<img src="jig-cards-2.png">
+<img src="jig-cards-2.png" loading="lazy">
+<div class="card-content">
 <h3>Mobile Optimization Guide</h3>
 <a href="blog-mobile-optimization.html" class="btn">Read</a>
 </div>
+</div>
 
 <div class="card">
-<img src="jig-cards-3.png">
-<h3>Low-End Device Optimization</h3>
+<img src="jig-cards-3.png" loading="lazy">
+<div class="card-content">
+<h3>Low-End Optimization</h3>
 <a href="blog-low-end-phone-optimization.html" class="btn">Read</a>
 </div>
+</div>
 
 </div>
 </div>
 
-<!-- DEVELOPMENT -->
+<!-- CONTENT -->
 <div class="section">
-<h2>🛠 Game Development</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Learn Game Development</h3>
-<a href="blog-learning-to-code-games.html" class="btn">Read</a>
-</div>
-
-<div class="card">
-<h3>Python Automation</h3>
-<a href="blog-python-automation.html" class="btn">Read</a>
-</div>
-
-<div class="card">
-<h3>Solo Developer Journey</h3>
-<a href="blog-solo-dev-journey.html" class="btn">Read</a>
-</div>
-
-</div>
-</div>
-
-<!-- CONTENT DEPTH -->
-<div class="section">
-<h2>📚 Deep Insights on Gaming</h2>
-
-<p>
-Casual gaming has transformed into a powerful tool for relaxation and mental well-being. These games are designed to be simple, engaging, and accessible for everyone.
-</p>
-
-<p>
-Offline games provide a smooth and distraction-free experience, especially in low-network environments. This makes them highly effective for stress reduction and focus improvement.
-</p>
-
-<p>
-At SavyChamp, we prioritize performance, simplicity, and user satisfaction to create high-quality gaming experiences.
-</p>
+<h2>📚 Deep Insights</h2>
+<p>Casual gaming improves relaxation, focus, and mental clarity. Offline games provide smooth performance and distraction-free experience.</p>
 </div>
 
 <!-- TRUST -->
@@ -279,48 +262,35 @@ At SavyChamp, we prioritize performance, simplicity, and user satisfaction to cr
 <h3>Why Trust SavyChamp?</h3>
 <ul>
 <li>✔ Real gameplay testing</li>
-<li>✔ No copied or AI spam content</li>
-<li>✔ User-focused design</li>
+<li>✔ No AI spam content</li>
+<li>✔ User-first design</li>
 <li>✔ Regular updates</li>
 </ul>
 </div>
 
 <!-- FAQ -->
 <div class="faq">
-<h3>Frequently Asked Questions</h3>
-
-<p><b>Are casual games useful?</b><br>
-Yes, they help reduce stress and improve focus.</p>
-
-<p><b>Do offline games perform better?</b><br>
-Yes, they run smoothly without interruptions.</p>
-
-<p><b>Is SavyChamp content reliable?</b><br>
-Yes, all articles are based on real testing and experience.</p>
+<h3>FAQs</h3>
+<p><b>Are casual games useful?</b><br>Yes, they improve focus and reduce stress.</p>
+<p><b>Do offline games perform better?</b><br>Yes, they run smoother.</p>
 </div>
 
 <!-- AUTHOR -->
 <div class="author">
 <h3>About the Author</h3>
-<p>
-Written by the SavyChamp Team — experienced in mobile game development and user experience.
-</p>
+<p>SavyChamp Team — focused on mobile game development and user experience.</p>
 </div>
 
 <!-- FOOTER -->
 <footer>
-
 <p>© 2026 SavyChamp</p>
-<p>Simple games. Real experience. Better relaxation.</p>
-
 <p>
 <a href="about.html">About</a> |
-<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="privacy-policy.html">Privacy</a> |
 <a href="terms.html">Terms</a> |
 <a href="disclaimer.html">Disclaimer</a> |
 <a href="contact.html">Contact</a>
 </p>
-
 </footer>
 
 </body>

@@ -1,3 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SavyChamp Games</title>
+
+<style>
+
+body{
+    font-family:Segoe UI,Roboto,sans-serif;
+    background:#f8f9fa;
+    color:#2c3e50;
+    margin:0;
+}
+
+/* SECTION */
+section{
+    max-width:1100px;
+    margin:60px auto;
+    padding:0 20px;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    margin-top:40px;
+}
+
+.hero h1{
+    font-size:36px;
+}
+
+.hero p{
+    color:#6b7280;
+}
+
+/* FEATURED */
+.featured-card{
+    display:flex;
+    gap:30px;
+    background:#f1f5f9;
+    padding:30px;
+    border-radius:16px;
+    align-items:center;
+}
+
+.featured-right img{
+    width:80px;
+    border-radius:10px;
+    margin-right:10px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:100%;
+    border-radius:10px;
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 18px;
+    background:#2563eb;
+    color:white;
+    border-radius:8px;
+    text-decoration:none;
+}
+
+/* POPULAR */
+.banner{
+    background:#2563eb;
+    color:white;
+    padding:25px;
+    border-radius:16px;
+}
+
+/* FEATURES */
+.small div{
+    background:#e0e7ff;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+}
+
+/* WHY */
+.why-box{
+    background:#f8fafc;
+    padding:25px;
+    border-radius:14px;
+}
+
+/* CONTACT */
+.contact-card{
+    background:white;
+    padding:30px;
+    border-radius:16px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+    text-align:center;
+}
+
+.contact-text{
+    color:#4b5563;
+    margin-bottom:20px;
+}
+
+.email-box{
+    background:#2563eb;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:600;
+    display:inline-block;
+}
+
+.email-box a{
+    color:white;
+    text-decoration:none;
+}
+
+.contact-note{
+    margin-top:15px;
+    font-size:14px;
+    color:#6b7280;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .featured-card{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
 
 <!-- ===== HERO ===== -->
 <section class="hero">
@@ -42,21 +202,21 @@ A carefully designed arrow puzzle experience focused on precision, smooth animat
 <img src="arrows-paint-1.png">
 <h3>Arrows Paint</h3>
 <p>Arrow-based color puzzle with relaxing gameplay.</p>
-<a href="arrows-paint.html">Play →</a>
+<a href="arrows-paint.html" class="btn">Play</a>
 </div>
 
 <div class="card">
 <img src="tamcall-1.png">
-<h3>Tamcall</h3>
-<p>Smart tambola caller for smooth gameplay.</p>
-<a href="tamcall.html">Play →</a>
+<h3>Tamcall (Tambola Caller)</h3>
+<p>Smart tambola caller designed for smooth gameplay.</p>
+<a href="tamcall.html" class="btn">Play</a>
 </div>
 
 <div class="card">
 <img src="jig-cards-1.png">
-<h3>Jigcards</h3>
-<p>Creative card puzzle with beautiful visuals.</p>
-<a href="jig-cards.html">Play →</a>
+<h3>Jigcards Multiart</h3>
+<p>Creative card-based puzzle with beautiful visuals.</p>
+<a href="jig-cards.html" class="btn">Play</a>
 </div>
 
 </div>
@@ -130,128 +290,30 @@ SavyChamp games focus on simplicity, smooth performance, and relaxing gameplay e
 </section>
 
 
-<!-- ===== CONTACT (REAL EMAIL WORKING) ===== -->
+<!-- ===== CONTACT (EMAIL ONLY) ===== -->
 <section class="contact">
 
 <div class="contact-card">
 
 <h2>📩 Contact Us</h2>
 
-<form action="https://api.web3forms.com/submit" method="POST">
+<p class="contact-text">
+For support, feedback, or business inquiries, feel free to reach out directly via email.
+We usually respond within 24–48 hours.
+</p>
 
-<!-- 🔥 REPLACE THIS KEY -->
-<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+<div class="email-box">
+<a href="mailto:contact@savychamp.com">📧 contact@savychamp.com</a>
+</div>
 
-<input type="text" name="name" placeholder="Your Name" required>
-
-<input type="email" name="email" placeholder="Enter your email" required>
-
-<textarea name="message" placeholder="Write your message..." required></textarea>
-
-<button type="submit">Send Message</button>
-
-</form>
+<p class="contact-note">
+Please include your query details clearly for faster response.
+</p>
 
 </div>
 
 </section>
 
 
-<!-- ===== STYLE ===== -->
-<style>
-
-section{
-    max-width:1100px;
-    margin:60px auto;
-}
-
-.hero{
-    text-align:center;
-}
-
-/* FEATURED */
-.featured-card{
-    display:flex;
-    gap:30px;
-    background:#f1f5f9;
-    padding:30px;
-    border-radius:16px;
-}
-
-.featured-right img{
-    width:80px;
-    border-radius:10px;
-}
-
-/* GRID */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:white;
-    padding:20px;
-    border-radius:14px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.05);
-}
-
-.card img{
-    width:100%;
-    border-radius:10px;
-}
-
-/* POPULAR */
-.banner{
-    background:#2563eb;
-    color:white;
-    padding:25px;
-    border-radius:16px;
-}
-
-/* FEATURES */
-.small div{
-    background:#e0e7ff;
-    padding:15px;
-    border-radius:10px;
-    text-align:center;
-}
-
-/* WHY */
-.why-box{
-    background:#f8fafc;
-    padding:25px;
-    border-radius:14px;
-}
-
-/* CONTACT */
-.contact-card{
-    background:white;
-    padding:25px;
-    border-radius:14px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.05);
-}
-
-input, textarea{
-    width:100%;
-    padding:12px;
-    margin-bottom:10px;
-    border-radius:8px;
-    border:1px solid #ccc;
-}
-
-button{
-    padding:12px;
-    background:#2563eb;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#1d4ed8;
-}
-
-</style>
+</body>
+</html>

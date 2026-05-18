@@ -1,9 +1,8 @@
-<!-- ===== SAVYCHAMP FULL WIDTH PREMIUM FOOTER ===== -->
+<!-- ===== SAVYCHAMP AUTHORITY FOOTER ===== -->
 
 <style>
 
 /* FULL WIDTH BACKGROUND */
-
 .footer{
     width:100%;
     background:linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
@@ -13,8 +12,7 @@
     overflow:hidden;
 }
 
-/* GLOW EFFECT */
-
+/* GLOW */
 .footer::before{
     content:"";
     position:absolute;
@@ -24,112 +22,76 @@
     width:500px;
     height:500px;
     background:radial-gradient(circle,#3b82f630,transparent);
-    z-index:0;
 }
 
-/* CONTENT WRAPPER */
-
+/* WRAPPER */
 .footer-container{
-    max-width:1100px;
+    max-width:1200px;
     margin:auto;
     display:grid;
-    grid-template-columns:1.2fr 1fr 1fr;
-    gap:30px;
-    position:relative;
-    z-index:1;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:35px;
 }
 
 /* BRAND */
-
 .footer-brand img{
-    width:75px;
-    border-radius:16px;
+    width:80px;
+    border-radius:18px;
     margin-bottom:12px;
-    box-shadow:0 6px 18px rgba(0,0,0,0.4);
 }
 
 .footer-brand h2{
-    font-size:24px;
+    font-size:26px;
     margin-bottom:10px;
 }
 
 .footer-brand p{
     font-size:14px;
     color:#cbd5f5;
-    line-height:1.8;
+    line-height:1.9;
+    margin-bottom:12px;
 }
 
-/* BOXES */
-
+/* BOX */
 .footer-box{
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(10px);
     border-radius:16px;
-    padding:20px;
-    transition:0.3s;
-}
-
-.footer-box:hover{
-    transform:translateY(-5px);
-    background:rgba(255,255,255,0.15);
-}
-
-/* HEADINGS */
-
-.footer-box h4{
-    margin-bottom:12px;
-    font-size:16px;
+    padding:22px;
 }
 
 /* LINKS */
-
 .footer-links a{
     display:block;
     text-decoration:none;
     color:#cbd5f5;
     font-size:14px;
-    margin-bottom:7px;
-    transition:0.3s;
+    margin-bottom:8px;
 }
 
 .footer-links a:hover{
-    color:#ffffff;
-    padding-left:4px;
+    color:#fff;
 }
 
 /* CONTACT */
-
 .footer-contact p{
     font-size:14px;
     color:#e2e8f0;
-    margin-bottom:6px;
 }
 
 /* SOCIAL */
-
-.footer-social{
-    margin-top:10px;
-}
-
 .footer-social a{
     display:inline-block;
-    margin:5px 5px 0 0;
+    margin:6px 6px 0 0;
     padding:8px 14px;
     border-radius:10px;
-    background:#ffffff;
+    background:#fff;
     color:#1e293b;
     font-size:13px;
     text-decoration:none;
-    transition:0.3s;
-}
-
-.footer-social a:hover{
-    background:#e0e7ff;
-    transform:translateY(-2px);
 }
 
 /* BOTTOM */
-
 .footer-bottom{
     text-align:center;
     margin-top:40px;
@@ -140,7 +102,6 @@
 }
 
 /* MOBILE */
-
 @media(max-width:800px){
     .footer-container{
         grid-template-columns:1fr;
@@ -156,33 +117,57 @@
 
 <!-- BRAND -->
 <div class="footer-brand">
+
 <img src="logo.png">
+
 <h2>SavyChamp</h2>
+
 <p>
-SavyChamp creates simple, relaxing, and smooth mobile games designed for stress-free gameplay. 
-Our focus is on lightweight performance and enjoyable user experience across all devices.
+SavyChamp is an independent mobile game development studio focused on building simple, smooth, and user-friendly casual games. Our approach is based on real player behavior, where users prefer quick, stress-free experiences rather than complex mechanics.
 </p>
+
+<p>
+Instead of creating heavy or competitive games, we design lightweight applications that run efficiently across all devices, including low-end smartphones. This ensures accessibility and consistent performance for a wider audience.
+</p>
+
+<p>
+Our games are built around clarity, minimal design, and satisfying interaction. Whether it is puzzle gameplay, merge mechanics, or ASMR-style experiences, every product is tested for usability and smooth performance before release.
+</p>
+
+<p>
+We continuously improve our games based on real usage insights, focusing on player comfort, retention, and simplicity.
+</p>
+
 </div>
 
 <!-- EXPLORE -->
 <div class="footer-box">
+
 <h4>Explore</h4>
+
 <div class="footer-links">
 <a href="index.html">Home</a>
-<a href="games.html">Games</a>
-<a href="blog.html">Blog</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
+<a href="games.html">All Games</a>
+<a href="blog.html">Blog Articles</a>
+<a href="about.html">About SavyChamp</a>
+<a href="contact.html">Contact Support</a>
 </div>
+
+<p style="margin-top:10px; font-size:13px; color:#cbd5f5;">
+Explore our collection of casual mobile games and in-depth blog articles covering game design, user experience, and performance optimization.
+</p>
+
 </div>
 
 <!-- CONNECT -->
 <div class="footer-box">
-<h4>Connect</h4>
+
+<h4>Connect & Trust</h4>
 
 <div class="footer-contact">
 <p>Email: contact@savychamp.com</p>
 <p>Developer: SavyChamp Studio</p>
+<p>Platform: Android (Google Play)</p>
 </div>
 
 <div class="footer-social">
@@ -192,16 +177,28 @@ Our focus is on lightweight performance and enjoyable user experience across all
 
 <div class="footer-links" style="margin-top:12px;">
 <a href="privacy-policy.html">Privacy Policy</a>
-<a href="terms.html">Terms</a>
+<a href="terms.html">Terms & Conditions</a>
 <a href="disclaimer.html">Disclaimer</a>
 </div>
+
+<p style="margin-top:12px; font-size:13px; color:#cbd5f5;">
+We follow transparent policies and user-first practices to ensure safety, privacy, and trust across all our products.
+</p>
 
 </div>
 
 </div>
 
 <div class="footer-bottom">
+
+<p>
 © 2026 SavyChamp. All rights reserved.
+</p>
+
+<p>
+This website provides informational content about our mobile games, development process, and user experience insights.
+</p>
+
 </div>
 
 </footer>

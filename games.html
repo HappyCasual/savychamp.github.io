@@ -8,7 +8,6 @@
 
 <!-- ===== FEATURED ===== -->
 <section class="featured">
-
 <div class="featured-card">
 
 <div class="featured-left">
@@ -29,11 +28,10 @@ A carefully designed arrow puzzle experience focused on precision, smooth animat
 </div>
 
 </div>
-
 </section>
 
 
-<!-- ===== ALL GAMES (GRID STYLE) ===== -->
+<!-- ===== ALL GAMES ===== -->
 <section class="games">
 
 <h2>🎮 All Games</h2>
@@ -68,11 +66,9 @@ A carefully designed arrow puzzle experience focused on precision, smooth animat
 
 <!-- ===== POPULAR ===== -->
 <section class="popular">
-
 <div class="banner">
 
 <h2>⭐ Popular Game</h2>
-
 <h3>Arrows Paint ASMR</h3>
 
 <p>
@@ -80,7 +76,6 @@ One of our most played puzzle games focused on precision, timing, and satisfying
 </p>
 
 </div>
-
 </section>
 
 
@@ -112,12 +107,10 @@ One of our most played puzzle games focused on precision, timing, and satisfying
 <h2>✨ Game Features</h2>
 
 <div class="grid small">
-
 <div>⚡ Fast Performance</div>
 <div>📱 Works on all devices</div>
 <div>📶 Offline Friendly</div>
 <div>🎮 Simple Gameplay</div>
-
 </div>
 
 </section>
@@ -125,7 +118,6 @@ One of our most played puzzle games focused on precision, timing, and satisfying
 
 <!-- ===== WHY USERS ===== -->
 <section class="why">
-
 <div class="why-box">
 
 <h2>🧠 Why Players Enjoy SavyChamp</h2>
@@ -135,21 +127,30 @@ SavyChamp games focus on simplicity, smooth performance, and relaxing gameplay e
 </p>
 
 </div>
-
 </section>
 
 
-<!-- ===== CONTACT ===== -->
+<!-- ===== CONTACT (REAL EMAIL WORKING) ===== -->
 <section class="contact">
 
 <div class="contact-card">
 
-<h2>📩 Contact</h2>
+<h2>📩 Contact Us</h2>
 
-<input type="email" id="emailInput" placeholder="Enter your email">
-<textarea id="messageInput" placeholder="Write your message..."></textarea>
+<form action="https://api.web3forms.com/submit" method="POST">
 
-<button onclick="subscribe()">Send Message</button>
+<!-- 🔥 REPLACE THIS KEY -->
+<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Enter your email" required>
+
+<textarea name="message" placeholder="Write your message..." required></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
 
 </div>
 
@@ -157,7 +158,6 @@ SavyChamp games focus on simplicity, smooth performance, and relaxing gameplay e
 
 
 <!-- ===== STYLE ===== -->
-
 <style>
 
 section{
@@ -165,7 +165,6 @@ section{
     margin:60px auto;
 }
 
-/* HERO */
 .hero{
     text-align:center;
 }
@@ -248,13 +247,11 @@ button{
     color:white;
     border:none;
     border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
 }
 
 </style>
-
-
-<script>
-function subscribe(){
-    alert("Message sent!");
-}
-</script>

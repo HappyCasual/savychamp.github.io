@@ -1,14 +1,16 @@
 [
   {
     "id": "com.levelsparkcompany.arrows.paint",
-    "title": "Arrows Paint",
-    "icon": "arrows-paint-1.png",
-    "url": "https://play.google.com/store/apps/details?id=com.levelsparkcompany.arrows.paint"
+    "title": "Arrows Paint ASMR",
+    "icon": "https://play-lh.googleusercontent.com/o5rX-wXJVGt-2-UykDHOJt_cYQidV2TDiNlXwC48BWVyFI4lTmuk5pFSjRYtwIowYlR7viyG5Pr0tE5JyuEDXtM",
+    "url": "https://play.google.com/store/apps/details?id=com.levelsparkcompany.arrows.paint&hl=en&gl=us",
+    "developer": "SavyChamp"
   },
   {
     "id": "com.happycasualcompany.jiggytiles",
-    "title": "Jig Cards",
-    "icon": "jig-cards-1.png",
-    "url": "https://play.google.com/store/apps/details?id=com.happycasualcompany.jiggytiles"
+    "title": "Jig Cards: Multi Art Jigsaw",
+    "icon": "https://play-lh.googleusercontent.com/-m8WEx4-6KUVS9oi7hznTc6tjLSNdBrIm-m0ev9yAXoVbxQxKiMRoAzGDy4Lg_Gbf1PMr4zbXOkfpR_vyl_N",
+    "url": "https://play.google.com/store/apps/details?id=com.happycasualcompany.jiggytiles&hl=en&gl=us",
+    "developer": "SavyChamp"
   }
 ]

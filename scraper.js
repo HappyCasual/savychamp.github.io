@@ -33,6 +33,8 @@ async function scrapeGames() {
         
     } catch (error) {
         console.error('Error scraping data:', error);
+        // This tells GitHub Actions to flag the run as a "Failure" (Red X) if something breaks
+        process.exit(1); 
     }
 }
 

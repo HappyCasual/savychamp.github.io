@@ -107,7 +107,7 @@
         }
 
         /* =========================================
-           MAIN CONTENT (DIRECT GAMES) 
+           MAIN CONTENT (DYNAMIC GAMES) 
         ========================================= */
         main {
             padding: 40px 5%;
@@ -160,6 +160,14 @@
         
         .play-btn i {
             margin-right: 5px;
+        }
+        
+        .loading-text {
+            grid-column: 1 / -1;
+            font-size: 18px;
+            color: var(--text-color);
+            opacity: 0.7;
+            padding: 40px 0;
         }
 
         /* =========================================
@@ -230,43 +238,9 @@
 
     <!-- DIRECT GAMES -->
     <main>
-        <div class="games-grid">
-            
-            <!-- Game 1 -->
-            <div class="game-card">
-                <img src="arrows-paint-1.png" alt="Arrows Paint">
-                <h3>Arrows Paint</h3>
-                <a href="arrows-paint.html" class="play-btn"><i class="fa-brands fa-google-play"></i> Get it on Play Store</a>
-            </div>
-
-            <!-- Game 2 -->
-            <div class="game-card">
-                <img src="jig-cards-1.png" alt="Jig Cards">
-                <h3>Jig Cards</h3>
-                <a href="jig-cards.html" class="play-btn"><i class="fa-brands fa-google-play"></i> Get it on Play Store</a>
-            </div>
-
-            <!-- Game 3 -->
-            <div class="game-card">
-                <img src="tamcall-1.png" alt="Tamcall">
-                <h3>Tamcall</h3>
-                <a href="tamcall.html" class="play-btn"><i class="fa-brands fa-google-play"></i> Get it on Play Store</a>
-            </div>
-
-            <!-- Game 4 -->
-            <div class="game-card">
-                <img src="logo.png" alt="Love Merge">
-                <h3>Love Merge</h3>
-                <a href="love-merge.html" class="play-btn"><i class="fa-brands fa-google-play"></i> Get it on Play Store</a>
-            </div>
-
-            <!-- Game 5: Tutor Cutter -->
-            <div class="game-card">
-                <img src="cutter-logo-1.png" alt="Tutor Cutter">
-                <h3>Tutor Cutter</h3>
-                <a href="tutor-cutter.html" class="play-btn"><i class="fa-brands fa-google-play"></i> Get it on Play Store</a>
-            </div>
-
+        <!-- ID added here so JavaScript can inject the games automatically -->
+        <div class="games-grid" id="games-container">
+            <div class="loading-text">Loading games from Play Store...</div>
         </div>
     </main>
 
@@ -278,6 +252,49 @@
             <a href="disclaimer.html">Disclaimer</a>
         </div>
     </footer>
+
+    <!-- JAVASCRIPT TO LOAD GAMES FROM JSON -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('games.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(games => {
+                    const container = document.getElementById('games-container');
+                    container.innerHTML = ''; // Remove the loading text
+
+                    // Check if games exist in the JSON
+                    if (games.length === 0) {
+                        container.innerHTML = '<div class="loading-text">No games found yet.</div>';
+                        return;
+                    }
+
+                    // Loop through each game and generate HTML
+                    games.forEach(game => {
+                        const card = `
+                            <div class="game-card">
+                                <img src="${game.icon}" alt="${game.title}">
+                                <h3>${game.title}</h3>
+                                <a href="${game.url}" target="_blank" rel="noopener noreferrer" class="play-btn">
+                                    <i class="fa-brands fa-google-play"></i> Get it on Play Store
+                                </a>
+                            </div>
+                        `;
+                        container.innerHTML += card;
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading games:', error);
+                    // Fallback message if games.json fails to load
+                    document.getElementById('games-container').innerHTML = 
+                        '<div class="loading-text">Failed to load games data. Please check back later!</div>';
+                });
+        });
+    </script>
 
 </body>
 </html>

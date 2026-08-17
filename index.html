@@ -126,7 +126,7 @@
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 15px;
+            padding: 20px;
             transition: transform 0.2s;
         }
 
@@ -134,16 +134,20 @@
             transform: translateY(-5px);
         }
 
+        /* UPDATED: Perfect Square App Icons */
         .game-card img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 8px;
-            background-color: var(--border-color); /* Placeholder color */
+            width: 160px; /* Fixed square width */
+            height: 160px; /* Fixed square height */
+            object-fit: contain; /* Ensures the whole logo fits without cropping */
+            border-radius: 24px; /* Play Store style rounded corners */
+            margin: 0 auto; /* Centers the icon perfectly */
+            display: block; /* Required for margin auto to work */
+            background-color: transparent;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Subtle shadow so the icon pops */
         }
 
         .game-card h3 {
-            margin: 15px 0 15px;
+            margin: 20px 0 15px;
             font-size: 20px;
         }
 

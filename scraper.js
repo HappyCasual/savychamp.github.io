@@ -1,5 +1,5 @@
-const gplay = require('google-play-scraper');
-const fs = require('fs');
+import gplay from 'google-play-scraper';
+import fs from 'fs';
 
 // Your App IDs from the Google Play links
 const appsToScrape = [

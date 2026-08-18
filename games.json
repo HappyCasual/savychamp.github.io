@@ -4,13 +4,25 @@
     "title": "Arrows Paint ASMR",
     "icon": "https://play-lh.googleusercontent.com/o5rX-wXJVGt-2-UykDHOJt_cYQidV2TDiNlXwC48BWVyFI4lTmuk5pFSjRYtwIowYlR7viyG5Pr0tE5JyuEDXtM",
     "url": "https://play.google.com/store/apps/details?id=com.levelsparkcompany.arrows.paint&hl=en&gl=us",
-    "developer": "SavyChamp"
+    "developer": "SavyChamp",
+    "description": "Solve relaxing arrow puzzles and paint pictures in this offline ASMR brain game.",
+    "screenshots": [
+      "https://play-lh.googleusercontent.com/iERIrth2g_O5BFgZy4Il_UGizitvX0st0XrJ_ymaYMXzeAMAShHEvhrHPn8wKNYa__n4m-r6rp4Cv6w0xw8c",
+      "https://play-lh.googleusercontent.com/dQTIKB-bdF4eWMm42JulwqsxVJNeuW_vwbrDhUOsM37e23DeuwnAMotJv4ndbpTVIYLQA3dqGqEySJaIHi4jPw",
+      "https://play-lh.googleusercontent.com/p_t5-1lHWDNTfDTYH7Xr3dRhJPG1uUYsSf_MctBzZU7EmXYxT4_dCPsNtOwMjQuMxRmAFABdi9FguUs0BXF7E9g"
+    ]
   },
   {
     "id": "com.happycasualcompany.jiggytiles",
     "title": "Jig Cards: Multi Art Jigsaw",
     "icon": "https://play-lh.googleusercontent.com/-m8WEx4-6KUVS9oi7hznTc6tjLSNdBrIm-m0ev9yAXoVbxQxKiMRoAzGDy4Lg_Gbf1PMr4zbXOkfpR_vyl_N",
     "url": "https://play.google.com/store/apps/details?id=com.happycasualcompany.jiggytiles&hl=en&gl=us",
-    "developer": "SavyChamp"
+    "developer": "SavyChamp",
+    "description": "A unique jigsaw experience! Swap beautiful art cards, solve HD puzzles &amp; relax.",
+    "screenshots": [
+      "https://play-lh.googleusercontent.com/60c0-XGT76XDCPzP0gpODPSP1TyxBEZSH8dDlYxUjhGhcK5TFA13x_RoyF-uzoQGetgzH7RZWlkjvQPIc0Az7g",
+      "https://play-lh.googleusercontent.com/rFxCtZqwSyBqHhgOLwqJPyK8n_pZIT4TneM5pdwyrc4WFcObB4ywb3-Qeye2xGeGKCAaZ5YUCSoCX3QowerQhQ",
+      "https://play-lh.googleusercontent.com/Bw3k7tEqiRR0JHZWetb12AMULk2aU9JosKAqTQdSD5jxBecJHkGNLsZxlGzpMkwzuOVIMt4P114YWGwztjucYH8"
+    ]
   }
 ]

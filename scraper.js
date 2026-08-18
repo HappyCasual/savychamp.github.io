@@ -24,8 +24,8 @@ async function scrapeGames() {
                 developer: app.developer,
                 score: app.scoreText,
                 description: app.summary || 'Enjoy this wonderful game by SavyChamp.',
-                // Force it to handle the screenshots array safely
-                screenshots: Array.isArray(app.screenshots) ? app.screenshots.slice(0, 3) : []
+                // FIX: Removed .slice(0, 3) so it grabs ALL screenshots now!
+                screenshots: Array.isArray(app.screenshots) ? app.screenshots : []
             });
             console.log(`Successfully scraped: ${app.title}`);
         }

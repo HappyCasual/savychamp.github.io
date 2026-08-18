@@ -117,51 +117,121 @@
 
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
             margin-top: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .game-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            transition: transform 0.2s;
+            border-radius: 16px;
+            padding: 25px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes the play button to the bottom */
+            text-align: left;
         }
 
         .game-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
-        /* UPDATED: Perfect Square App Icons */
-        .game-card img {
-            width: 160px; /* Fixed square width */
-            height: 160px; /* Fixed square height */
-            object-fit: contain; /* Ensures the whole logo fits without cropping */
-            border-radius: 24px; /* Play Store style rounded corners */
-            margin: 0 auto; /* Centers the icon perfectly */
-            display: block; /* Required for margin auto to work */
+        /* Group everything above the play button together */
+        .game-card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Beautiful App Icon */
+        .app-icon {
+            width: 120px; 
+            height: 120px; 
+            object-fit: contain; 
+            border-radius: 24px; 
+            margin: 0 auto 15px; 
+            display: block; 
             background-color: transparent;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Subtle shadow so the icon pops */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12); 
+            transition: transform 0.2s;
+        }
+
+        .app-icon:hover {
+            transform: scale(1.05);
         }
 
         .game-card h3 {
-            margin: 20px 0 15px;
-            font-size: 20px;
+            margin: 10px 0 5px;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        /* Short Description Style */
+        .app-description {
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin: 5px 0 20px 0;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Horizontally Scrollable Screenshots */
+        .screenshots-container {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-start;
+            overflow-x: auto; /* Allows smooth horizontal scrolling */
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            width: 100%;
+            /* Custom scrollbar styling for a cleaner look */
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-color) transparent;
+        }
+
+        .screenshots-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .screenshots-container::-webkit-scrollbar-thumb {
+            background-color: var(--border-color);
+            border-radius: 10px;
+        }
+
+        .screenshot {
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .play-btn {
-            display: inline-block;
+            display: block;
+            text-align: center;
             background: var(--accent-color);
             color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: bold;
             width: calc(100% - 40px);
+            margin: 0 auto;
+            transition: background 0.3s;
         }
         
+        .play-btn:hover {
+            filter: brightness(1.1);
+        }
+
         .play-btn i {
             margin-right: 5px;
         }
@@ -172,6 +242,7 @@
             color: var(--text-color);
             opacity: 0.7;
             padding: 40px 0;
+            text-align: center;
         }
 
         /* =========================================
@@ -213,6 +284,10 @@
             .social-section {
                 margin-left: 0; /* Centers the social icons under the logo */
             }
+
+            .screenshot {
+                height: 150px; /* Slightly smaller screenshots on mobile */
+            }
         }
     </style>
 </head>
@@ -233,7 +308,6 @@
                 <a href="https://www.facebook.com/SavyChamp/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.youtube.com/@SavyChamp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
                 <a href="https://www.instagram.com/savychamp/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-                <!-- X logo -->
                 <a href="https://x.com/SavyChamp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
                 <a href="https://whatsapp.com/channel/0029VbC19GNGJP8NNgmvj12h" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
@@ -279,10 +353,35 @@
 
                     // Loop through each game and generate HTML
                     games.forEach(game => {
+                        
+                        // Safely create the screenshots HTML if they exist in the JSON
+                        let screenshotsHtml = '';
+                        if (game.screenshots && game.screenshots.length > 0) {
+                            screenshotsHtml = game.screenshots.map(imgUrl => 
+                                `<img src="${imgUrl}" alt="Screenshot of ${game.title}" class="screenshot" loading="lazy">`
+                            ).join('');
+                        }
+
+                        // Generate the complete card HTML
                         const card = `
                             <div class="game-card">
-                                <img src="${game.icon}" alt="${game.title}">
-                                <h3>${game.title}</h3>
+                                <div class="game-card-content">
+                                    <!-- Wrapping icon in an anchor tag so clicking it goes to the Play Store -->
+                                    <a href="${game.url}" target="_blank" rel="noopener noreferrer">
+                                        <img src="${game.icon}" alt="${game.title} Logo" class="app-icon" loading="lazy">
+                                    </a>
+                                    
+                                    <h3>${game.title}</h3>
+                                    
+                                    <!-- Displays the short description if available -->
+                                    <p class="app-description">${game.description || 'Enjoy this wonderful game by SavyChamp.'}</p>
+                                    
+                                    <!-- Scrollable screenshots container -->
+                                    <div class="screenshots-container">
+                                        ${screenshotsHtml}
+                                    </div>
+                                </div>
+                                
                                 <a href="${game.url}" target="_blank" rel="noopener noreferrer" class="play-btn">
                                     <i class="fa-brands fa-google-play"></i> Get it on Play Store
                                 </a>

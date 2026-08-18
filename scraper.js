@@ -19,10 +19,12 @@ async function scrapeGames() {
             gamesData.push({
                 id: appId,
                 title: app.title,
-                icon: app.icon, // High-res app icon
-                url: app.url,   // Direct link to Play Store
+                icon: app.icon,   // High-res app icon
+                url: app.url,     // Direct link to Play Store
                 developer: app.developer,
-                score: app.scoreText
+                score: app.scoreText,
+                description: app.summary, // Grabs the short description
+                screenshots: app.screenshots.slice(0, 3) // Grabs the first 3 screenshots
             });
             console.log(`Successfully scraped: ${app.title}`);
         }

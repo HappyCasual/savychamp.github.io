@@ -75,9 +75,26 @@
             border-radius: 10px;
         }
 
+        /* Groups the title and tagline vertically */
+        .title-group {
+            display: flex;
+            flex-direction: column;
+        }
+
         .logo-section h1 {
             font-size: 22px;
             margin: 0;
+            line-height: 1.1; /* Adjusted slightly so the tagline sits nicely beneath */
+        }
+
+        /* Professional tagline styling */
+        .tagline {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-color);
+            opacity: 0.75;
+            margin-top: 3px;
+            letter-spacing: 0.3px;
         }
 
         .social-section {
@@ -290,7 +307,11 @@
     <header>
         <div class="logo-section">
             <img src="logo.png" alt="SavyChamp Logo">
-            <h1>SavyChamp Games</h1>
+            <!-- Wrapped title and tagline here -->
+            <div class="title-group">
+                <h1>SavyChamp Games</h1>
+                <span class="tagline">More Fun. Less Ads.</span>
+            </div>
         </div>
         
         <div class="social-section">
@@ -325,7 +346,6 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             
-            // Fix: Added '?nocache=' so the browser doesn't load the old JSON file
             fetch('games.json?nocache=' + new Date().getTime())
                 .then(response => {
                     if (!response.ok) {
@@ -345,14 +365,13 @@
                     games.forEach(game => {
                         
                         let screenshotsHtml = '';
-                        // Safely check if screenshots exist and loop through them
+                        
                         if (game.screenshots && Array.isArray(game.screenshots) && game.screenshots.length > 0) {
                             screenshotsHtml = game.screenshots.map(imgUrl => 
                                 `<img src="${imgUrl}" alt="Screenshot of ${game.title}" class="screenshot" loading="lazy">`
                             ).join('');
                         }
 
-                        // Fix: Removed the anchor link from the icon image
                         const card = `
                             <div class="game-card">
                                 <div class="game-card-content">

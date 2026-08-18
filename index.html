@@ -22,7 +22,6 @@
             --footer-bg: #f1f5f9;
         }
 
-        /* Detects device dark mode and switches colors */
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg-color: #0f172a;
@@ -46,7 +45,7 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Keeps footer at bottom */
+            min-height: 100vh; 
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -59,14 +58,13 @@
             padding: 15px 5%;
             background-color: var(--header-bg);
             border-bottom: 1px solid var(--border-color);
-            position: relative; /* Allows absolute centering of the logo */
+            position: relative; 
         }
 
         .logo-section {
             display: flex;
             align-items: center;
             gap: 12px;
-            /* Centers the logo and title perfectly in the middle */
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
@@ -86,7 +84,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-left: auto; /* Pushes the social icons to the far right */
+            margin-left: auto; 
         }
 
         .social-section span {
@@ -111,7 +109,7 @@
         ========================================= */
         main {
             padding: 40px 5%;
-            flex: 1; /* Pushes footer to the bottom */
+            flex: 1; 
             text-align: center;
         }
 
@@ -133,7 +131,7 @@
             transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Pushes the play button to the bottom */
+            justify-content: space-between; 
             text-align: left;
         }
 
@@ -142,7 +140,6 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
-        /* Group everything above the play button together */
         .game-card-content {
             flex-grow: 1;
             display: flex;
@@ -150,7 +147,6 @@
             align-items: center;
         }
 
-        /* Beautiful App Icon */
         .app-icon {
             width: 120px; 
             height: 120px; 
@@ -173,7 +169,6 @@
             text-align: center;
         }
 
-        /* Short Description Style */
         .app-description {
             font-size: 14px;
             color: var(--text-color);
@@ -183,16 +178,14 @@
             text-align: center;
         }
 
-        /* Horizontally Scrollable Screenshots */
         .screenshots-container {
             display: flex;
             gap: 12px;
             justify-content: flex-start;
-            overflow-x: auto; /* Allows smooth horizontal scrolling */
+            overflow-x: auto; 
             padding-bottom: 15px;
             margin-bottom: 20px;
             width: 100%;
-            /* Custom scrollbar styling for a cleaner look */
             scrollbar-width: thin;
             scrollbar-color: var(--border-color) transparent;
         }
@@ -277,16 +270,16 @@
             }
             
             .logo-section {
-                position: static; /* Removes absolute positioning on smaller screens */
+                position: static; 
                 transform: none;
             }
             
             .social-section {
-                margin-left: 0; /* Centers the social icons under the logo */
+                margin-left: 0; 
             }
 
             .screenshot {
-                height: 150px; /* Slightly smaller screenshots on mobile */
+                height: 150px; 
             }
         }
     </style>
@@ -295,13 +288,11 @@
 
     <!-- TOP BAR -->
     <header>
-        <!-- Centered Logo and Title -->
         <div class="logo-section">
             <img src="logo.png" alt="SavyChamp Logo">
             <h1>SavyChamp Games</h1>
         </div>
         
-        <!-- Right-Aligned Social Icons -->
         <div class="social-section">
             <span>Community:</span>
             <div class="social-icons">
@@ -316,7 +307,6 @@
 
     <!-- DIRECT GAMES -->
     <main>
-        <!-- ID added here so JavaScript can inject the games automatically -->
         <div class="games-grid" id="games-container">
             <div class="loading-text">Loading games from Play Store...</div>
         </div>
@@ -334,7 +324,9 @@
     <!-- JAVASCRIPT TO LOAD GAMES FROM JSON -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            fetch('games.json')
+            
+            // Fix: Added '?nocache=' so the browser doesn't load the old JSON file
+            fetch('games.json?nocache=' + new Date().getTime())
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
@@ -343,40 +335,33 @@
                 })
                 .then(games => {
                     const container = document.getElementById('games-container');
-                    container.innerHTML = ''; // Remove the loading text
+                    container.innerHTML = ''; 
 
-                    // Check if games exist in the JSON
                     if (games.length === 0) {
                         container.innerHTML = '<div class="loading-text">No games found yet.</div>';
                         return;
                     }
 
-                    // Loop through each game and generate HTML
                     games.forEach(game => {
                         
-                        // Safely create the screenshots HTML if they exist in the JSON
                         let screenshotsHtml = '';
-                        if (game.screenshots && game.screenshots.length > 0) {
+                        // Safely check if screenshots exist and loop through them
+                        if (game.screenshots && Array.isArray(game.screenshots) && game.screenshots.length > 0) {
                             screenshotsHtml = game.screenshots.map(imgUrl => 
                                 `<img src="${imgUrl}" alt="Screenshot of ${game.title}" class="screenshot" loading="lazy">`
                             ).join('');
                         }
 
-                        // Generate the complete card HTML
+                        // Fix: Removed the anchor link from the icon image
                         const card = `
                             <div class="game-card">
                                 <div class="game-card-content">
-                                    <!-- Wrapping icon in an anchor tag so clicking it goes to the Play Store -->
-                                    <a href="${game.url}" target="_blank" rel="noopener noreferrer">
-                                        <img src="${game.icon}" alt="${game.title} Logo" class="app-icon" loading="lazy">
-                                    </a>
+                                    <img src="${game.icon}" alt="${game.title} Logo" class="app-icon" loading="lazy">
                                     
                                     <h3>${game.title}</h3>
                                     
-                                    <!-- Displays the short description if available -->
                                     <p class="app-description">${game.description || 'Enjoy this wonderful game by SavyChamp.'}</p>
                                     
-                                    <!-- Scrollable screenshots container -->
                                     <div class="screenshots-container">
                                         ${screenshotsHtml}
                                     </div>
@@ -392,7 +377,6 @@
                 })
                 .catch(error => {
                     console.error('Error loading games:', error);
-                    // Fallback message if games.json fails to load
                     document.getElementById('games-container').innerHTML = 
                         '<div class="loading-text">Failed to load games data. Please check back later!</div>';
                 });

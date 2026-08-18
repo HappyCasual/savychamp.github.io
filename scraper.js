@@ -19,12 +19,13 @@ async function scrapeGames() {
             gamesData.push({
                 id: appId,
                 title: app.title,
-                icon: app.icon,   // High-res app icon
-                url: app.url,     // Direct link to Play Store
+                icon: app.icon,   
+                url: app.url,     
                 developer: app.developer,
                 score: app.scoreText,
-                description: app.summary, // Grabs the short description
-                screenshots: app.screenshots.slice(0, 3) // Grabs the first 3 screenshots
+                description: app.summary || 'Enjoy this wonderful game by SavyChamp.',
+                // Force it to handle the screenshots array safely
+                screenshots: Array.isArray(app.screenshots) ? app.screenshots.slice(0, 3) : []
             });
             console.log(`Successfully scraped: ${app.title}`);
         }
@@ -35,7 +36,6 @@ async function scrapeGames() {
         
     } catch (error) {
         console.error('Error scraping data:', error);
-        // This tells GitHub Actions to flag the run as a "Failure" (Red X) if something breaks
         process.exit(1); 
     }
 }

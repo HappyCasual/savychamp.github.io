@@ -1,12 +1,7 @@
-name: Update Play Store Data
+name: Update Arrows Paint
 
 on:
   workflow_dispatch:
-    inputs:
-      app_id:
-        description: 'Enter the Google Play App ID (e.g., com.happycasualcompany.jiggytiles)'
-        required: true
-        type: string
 
 jobs:
   scrape-and-commit:
@@ -26,14 +21,14 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Scraper for specific App
-        # Passes the App ID typed in the GitHub Actions tab to the script
-        run: node scraper.js "${{ github.event.inputs.app_id }}"
+      - name: Run Scraper
+        # Hardcode the App ID for this specific game here
+        run: node scraper.js "com.levelsparkcompany.arrows.paint"
 
       - name: Commit and Push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add games.json
-          git commit -m "Update Play Store data for ${{ github.event.inputs.app_id }}" || exit 0
+          git commit -m "Update Play Store data for Arrows Paint" || exit 0
           git push

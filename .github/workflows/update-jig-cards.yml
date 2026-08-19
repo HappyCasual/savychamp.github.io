@@ -1,0 +1,34 @@
+name: Update Jig Cards
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scrape-and-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write 
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Scraper
+        # Hardcode the App ID for this specific game here
+        run: node scraper.js "com.happycasualcompany.jiggytiles"
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add games.json
+          git commit -m "Update Play Store data for Jig Cards" || exit 0
+          git push

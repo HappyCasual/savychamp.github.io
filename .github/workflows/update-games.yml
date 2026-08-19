@@ -1,9 +1,12 @@
 name: Update Play Store Data
 
 on:
-  schedule:
-    - cron: '0 0 * * *' 
-  workflow_dispatch: 
+  workflow_dispatch:
+    inputs:
+      app_id:
+        description: 'Enter the Google Play App ID (e.g., com.happycasualcompany.jiggytiles)'
+        required: true
+        type: string
 
 jobs:
   scrape-and-commit:
@@ -23,14 +26,14 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Scraper
-        run: node scraper.js
+      - name: Run Scraper for specific App
+        # Passes the App ID typed in the GitHub Actions tab to the script
+        run: node scraper.js "${{ github.event.inputs.app_id }}"
 
       - name: Commit and Push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add games.json
-          # This forces a commit if there are changes, and safely ignores it if not
-          git commit -m "Auto-update games.json with Play Store icons" || exit 0
+          git commit -m "Update Play Store data for ${{ github.event.inputs.app_id }}" || exit 0
           git push

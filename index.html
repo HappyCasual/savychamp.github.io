@@ -35,6 +35,18 @@
         }
 
         /* =========================================
+           HIDE ALL SCROLLBARS BUT KEEP SCROLLING
+        ========================================= */
+        html, body {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        ::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+
+        /* =========================================
            GLOBAL STYLES 
         ========================================= */
         body {
@@ -202,7 +214,7 @@
            MAIN CONTENT (DYNAMIC GAMES LIST) 
         ========================================= */
         main {
-            padding: 15px 5% 40px 5%; /* Adjusted top padding to 15px to match the margin below buttons */
+            padding: 15px 5% 40px 5%; 
             flex: 1; 
             text-align: center;
         }
@@ -319,17 +331,6 @@
             padding-bottom: 15px;
             margin-bottom: 20px;
             width: 100%;
-            scrollbar-width: thin;
-            scrollbar-color: var(--border-color) transparent;
-        }
-
-        .screenshots-container::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .screenshots-container::-webkit-scrollbar-thumb {
-            background-color: var(--border-color);
-            border-radius: 10px;
         }
 
         .screenshot {

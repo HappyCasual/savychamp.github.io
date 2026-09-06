@@ -75,7 +75,6 @@
             border-radius: 10px;
         }
 
-        /* Groups the title and tagline vertically */
         .title-group {
             display: flex;
             flex-direction: column;
@@ -87,7 +86,6 @@
             line-height: 1.1; 
         }
 
-        /* Professional tagline styling - updated to right align */
         .tagline {
             font-size: 13px;
             font-weight: 500;
@@ -95,8 +93,8 @@
             opacity: 0.75;
             margin-top: 3px;
             letter-spacing: 0.3px;
-            text-align: center; /* Aligns the text to the right */
-            width: 100%; /* Ensures it spans the full width of the title above it */
+            text-align: center; 
+            width: 100%; 
         }
 
         .social-section {
@@ -157,7 +155,7 @@
         }
 
         /* =========================================
-           MAIN CONTENT (DYNAMIC GAMES) 
+           MAIN CONTENT (DYNAMIC GAMES LIST) 
         ========================================= */
         main {
             padding: 40px 5%;
@@ -165,49 +163,54 @@
             text-align: center;
         }
 
+        /* Switched from grid to flex column for the list style */
         .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
             margin-top: 20px;
-            max-width: 1200px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
 
+        /* Converted game-card to act as the accordion container */
         .game-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 25px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: box-shadow 0.2s;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; 
             text-align: left;
+            overflow: hidden; /* Keeps the rounded corners intact when body expands */
         }
 
         .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
         }
 
-        .game-card-content {
-            flex-grow: 1;
+        /* NEW: Header section (Always visible) */
+        .card-header {
             display: flex;
-            flex-direction: column;
             align-items: center;
+            padding: 15px 20px;
+            cursor: pointer;
+            user-select: none;
+            background: transparent;
         }
 
+        /* App icon styled for the left side of the list item */
         .app-icon {
-            width: 120px; 
-            height: 120px; 
+            width: 60px; 
+            height: 60px; 
             object-fit: contain; 
-            border-radius: 24px; 
-            margin: 0 auto 15px; 
+            border-radius: 12px; 
+            margin: 0 15px 0 0; 
             display: block; 
             background-color: transparent;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12); 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+            flex-shrink: 0;
             transition: transform 0.2s;
         }
 
@@ -215,19 +218,62 @@
             transform: scale(1.05);
         }
 
+        /* Title and developer name grouped in the center */
+        .card-title-area {
+            flex-grow: 1;
+        }
+
         .game-card h3 {
-            margin: 10px 0 5px;
-            font-size: 22px;
-            text-align: center;
+            margin: 0 0 4px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+        
+        .card-developer {
+            font-size: 13px;
+            color: var(--text-color);
+            opacity: 0.7;
+            margin: 0;
+        }
+
+        /* Chevron pointing down */
+        .card-chevron {
+            font-size: 18px;
+            color: var(--text-color);
+            opacity: 0.5;
+            transition: transform 0.3s ease;
+        }
+
+        /* Rotate chevron when active/expanded */
+        .game-card.active .card-chevron {
+            transform: rotate(180deg);
+        }
+
+        /* NEW: Body section (Hidden by default) */
+        .card-body {
+            display: none;
+            padding: 0 20px 20px 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Show body with smooth fade when the card is active */
+        .game-card.active .card-body {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .app-description {
             font-size: 14px;
             color: var(--text-color);
             opacity: 0.8;
-            margin: 5px 0 20px 0;
+            margin: 15px 0;
             line-height: 1.6;
-            text-align: center;
+            text-align: left;
         }
 
         .screenshots-container {
@@ -282,7 +328,6 @@
         }
         
         .loading-text {
-            grid-column: 1 / -1;
             font-size: 18px;
             color: var(--text-color);
             opacity: 0.7;
@@ -332,6 +377,17 @@
 
             .screenshot {
                 height: 150px; 
+            }
+            
+            /* Shrink icon and text slightly on small screens */
+            .app-icon {
+                width: 50px;
+                height: 50px;
+                margin-right: 12px;
+            }
+            
+            .game-card h3 {
+                font-size: 16px;
             }
         }
     </style>
@@ -455,23 +511,33 @@
                     ).join('');
                 }
 
+                // Generates the accordion HTML layout
                 const card = `
                     <div class="game-card">
-                        <div class="game-card-content">
+                        
+                        <!-- Header acts as the toggle button -->
+                        <div class="card-header" onclick="this.parentElement.classList.toggle('active')">
                             <img src="${game.icon}" alt="${game.title} Logo" class="app-icon" loading="lazy">
-                            
-                            <h3>${game.title}</h3>
-                            
+                            <div class="card-title-area">
+                                <h3>${game.title}</h3>
+                                <p class="card-developer">${game.developer || 'SavyChamp'}</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-down card-chevron"></i>
+                        </div>
+                        
+                        <!-- Body contains the expandable details -->
+                        <div class="card-body">
                             <p class="app-description">${game.description || 'Enjoy this wonderful experience by SavyChamp.'}</p>
                             
                             <div class="screenshots-container">
                                 ${screenshotsHtml}
                             </div>
+                            
+                            <a href="${game.url}" target="_blank" rel="noopener noreferrer" class="play-btn">
+                                <i class="fa-brands fa-google-play"></i> Get it on Play Store
+                            </a>
                         </div>
-                        
-                        <a href="${game.url}" target="_blank" rel="noopener noreferrer" class="play-btn">
-                            <i class="fa-brands fa-google-play"></i> Get it on Play Store
-                        </a>
+
                     </div>
                 `;
                 container.innerHTML += card;

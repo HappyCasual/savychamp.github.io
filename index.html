@@ -156,7 +156,14 @@
             gap: 15px;
             margin-bottom: 15px;
             flex-shrink: 0; /* Keeps buttons fixed */
-            flex-wrap: wrap; /* Allows buttons to wrap safely on tiny screens */
+            flex-wrap: nowrap; /* Forces buttons to stay on the same line */
+            overflow-x: auto; /* Allows swiping on tiny screens */
+            -ms-overflow-style: none; /* Hide scrollbar */
+            scrollbar-width: none; /* Hide scrollbar */
+        }
+
+        .filter-container::-webkit-scrollbar {
+            display: none; /* Hide scrollbar in Chrome/Safari */
         }
 
         .filter-btn {
@@ -169,6 +176,8 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
+            white-space: nowrap; /* Prevents text inside from wrapping */
+            flex-shrink: 0; /* Prevents buttons from resizing/squishing */
         }
 
         .filter-btn:hover {
@@ -581,7 +590,7 @@
             const btnCloseAll = document.getElementById('btn-close-all');
             
             if (activeCards.length > 0) {
-                btnCloseAll.style.display = 'inline-block';
+                btnCloseAll.style.display = 'block'; // Changed to block to match flex behavior perfectly
             } else {
                 btnCloseAll.style.display = 'none';
             }

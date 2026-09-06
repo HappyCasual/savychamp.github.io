@@ -128,7 +128,7 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .filter-btn {
@@ -155,6 +155,50 @@
         }
 
         /* =========================================
+           SEARCH BAR STYLES
+        ========================================= */
+        .search-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+            width: 100%;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-color);
+            opacity: 0.5;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 12px 15px 12px 40px;
+            border-radius: 25px;
+            border: 2px solid var(--border-color);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            font-size: 15px;
+            font-family: inherit;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #search-input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            #search-input:focus {
+                box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            }
+        }
+
+        /* =========================================
            MAIN CONTENT (DYNAMIC GAMES LIST) 
         ========================================= */
         main {
@@ -163,18 +207,16 @@
             text-align: center;
         }
 
-        /* Switched from grid to flex column for the list style */
         .games-grid {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 10px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Converted game-card to act as the accordion container */
         .game-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -183,14 +225,13 @@
             display: flex;
             flex-direction: column;
             text-align: left;
-            overflow: hidden; /* Keeps the rounded corners intact when body expands */
+            overflow: hidden;
         }
 
         .game-card:hover {
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
         }
 
-        /* NEW: Header section (Always visible) */
         .card-header {
             display: flex;
             align-items: center;
@@ -200,7 +241,6 @@
             background: transparent;
         }
 
-        /* App icon styled for the left side of the list item */
         .app-icon {
             width: 60px; 
             height: 60px; 
@@ -218,7 +258,6 @@
             transform: scale(1.05);
         }
 
-        /* Title and developer name grouped in the center */
         .card-title-area {
             flex-grow: 1;
         }
@@ -236,7 +275,6 @@
             margin: 0;
         }
 
-        /* Chevron pointing down */
         .card-chevron {
             font-size: 18px;
             color: var(--text-color);
@@ -244,19 +282,16 @@
             transition: transform 0.3s ease;
         }
 
-        /* Rotate chevron when active/expanded */
         .game-card.active .card-chevron {
             transform: rotate(180deg);
         }
 
-        /* NEW: Body section (Hidden by default) */
         .card-body {
             display: none;
             padding: 0 20px 20px 20px;
             border-top: 1px solid var(--border-color);
         }
 
-        /* Show body with smooth fade when the card is active */
         .game-card.active .card-body {
             display: block;
             animation: fadeIn 0.3s ease-in-out;
@@ -379,7 +414,6 @@
                 height: 150px; 
             }
             
-            /* Shrink icon and text slightly on small screens */
             .app-icon {
                 width: 50px;
                 height: 50px;
@@ -398,7 +432,6 @@
     <header>
         <div class="logo-section">
             <img src="logo.png" alt="SavyChamp Logo">
-            <!-- Wrapped title and tagline here -->
             <div class="title-group">
                 <h1>SavyChamp Games</h1>
                 <span class="tagline">More Fun. Less Ads.</span>
@@ -417,7 +450,6 @@
         </div>
     </header>
 
-    <!-- DIRECT GAMES -->
     <main>
         <!-- FILTER BUTTONS -->
         <div class="filter-container">
@@ -425,6 +457,13 @@
             <button id="btn-apps" class="filter-btn">Apps</button>
         </div>
 
+        <!-- SEARCH BAR -->
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="search-input" placeholder="Search in Games...">
+        </div>
+
+        <!-- DYNAMIC LIST -->
         <div class="games-grid" id="games-container">
             <div class="loading-text">Loading from Play Store...</div>
         </div>
@@ -439,21 +478,34 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT TO LOAD GAMES AND APPS FROM JSON -->
+    <!-- JAVASCRIPT TO LOAD AND FILTER DATA -->
     <script>
-        // Global variables to store data and current view state
         let allItems = [];
-        let currentFilter = 'game'; // default to loading games
+        let currentFilter = 'game'; 
+        let searchQuery = '';
 
         document.addEventListener("DOMContentLoaded", () => {
             const btnGames = document.getElementById('btn-games');
             const btnApps = document.getElementById('btn-apps');
+            const searchInput = document.getElementById('search-input');
+
+            // Search input listener
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase().trim();
+                renderItems();
+            });
 
             // Button click listeners
             btnGames.addEventListener('click', () => {
                 btnGames.classList.add('active');
                 btnApps.classList.remove('active');
                 currentFilter = 'game';
+                
+                // Clear search and update placeholder when switching tabs
+                searchInput.value = '';
+                searchQuery = '';
+                searchInput.placeholder = 'Search in Games...';
+                
                 renderItems();
             });
 
@@ -461,6 +513,12 @@
                 btnApps.classList.add('active');
                 btnGames.classList.remove('active');
                 currentFilter = 'app';
+                
+                // Clear search and update placeholder when switching tabs
+                searchInput.value = '';
+                searchQuery = '';
+                searchInput.placeholder = 'Search in Apps...';
+                
                 renderItems();
             });
             
@@ -491,17 +549,27 @@
                 return;
             }
 
-            // Filter the items. Default to 'game' if no type is set in JSON.
+            // Filter the items by Type AND Search Query
             const filteredData = allItems.filter(item => {
                 const itemType = item.type || 'game';
-                return itemType === currentFilter;
+                const matchesType = itemType === currentFilter;
+                const matchesSearch = item.title.toLowerCase().includes(searchQuery) || 
+                                      (item.developer && item.developer.toLowerCase().includes(searchQuery));
+                
+                return matchesType && matchesSearch;
             });
 
+            // Handle empty results
             if (filteredData.length === 0) {
-                container.innerHTML = `<div class="loading-text">No ${currentFilter}s found yet.</div>`;
+                if (searchQuery) {
+                    container.innerHTML = `<div class="loading-text">No results found for "${searchQuery}".</div>`;
+                } else {
+                    container.innerHTML = `<div class="loading-text">No ${currentFilter}s found yet.</div>`;
+                }
                 return;
             }
 
+            // Render matching items
             filteredData.forEach(game => {
                 let screenshotsHtml = '';
                 
@@ -511,11 +579,9 @@
                     ).join('');
                 }
 
-                // Generates the accordion HTML layout
                 const card = `
                     <div class="game-card">
                         
-                        <!-- Header acts as the toggle button -->
                         <div class="card-header" onclick="this.parentElement.classList.toggle('active')">
                             <img src="${game.icon}" alt="${game.title} Logo" class="app-icon" loading="lazy">
                             <div class="card-title-area">
@@ -525,7 +591,6 @@
                             <i class="fa-solid fa-chevron-down card-chevron"></i>
                         </div>
                         
-                        <!-- Body contains the expandable details -->
                         <div class="card-body">
                             <p class="app-description">${game.description || 'Enjoy this wonderful experience by SavyChamp.'}</p>
                             

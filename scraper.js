@@ -26,6 +26,10 @@ async function scrapeSingleGame() {
         // 2. Fetch data from Play Store for ONLY this game
         const app = await gplay.app({ appId: targetAppId });
         
+        // Check if game already exists in games.json to preserve the "type" property
+        const existingIndex = gamesData.findIndex(game => game.id === targetAppId);
+        const existingType = existingIndex !== -1 && gamesData[existingIndex].type ? gamesData[existingIndex].type : 'game';
+
         // 3. Format the new details
         const newGameData = {
             id: targetAppId,
@@ -33,12 +37,10 @@ async function scrapeSingleGame() {
             icon: app.icon,   
             url: app.url,     
             developer: app.developer,
-            description: app.summary || 'Enjoy this wonderful game by SavyChamp.',
+            type: existingType,
+            description: app.summary || 'Enjoy this wonderful experience by SavyChamp.',
             screenshots: Array.isArray(app.screenshots) ? app.screenshots : []
         };
-
-        // 4. Check if game already exists in games.json
-        const existingIndex = gamesData.findIndex(game => game.id === targetAppId);
         
         if (existingIndex !== -1) {
             // Update existing game

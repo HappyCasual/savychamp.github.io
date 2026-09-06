@@ -124,6 +124,39 @@
         }
 
         /* =========================================
+           FILTER BUTTONS STYLES
+        ========================================= */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .filter-btn {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 2px solid var(--border-color);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .filter-btn.active {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border-color: var(--accent-color);
+        }
+
+        /* =========================================
            MAIN CONTENT (DYNAMIC GAMES) 
         ========================================= */
         main {
@@ -330,8 +363,14 @@
 
     <!-- DIRECT GAMES -->
     <main>
+        <!-- FILTER BUTTONS -->
+        <div class="filter-container">
+            <button id="btn-games" class="filter-btn active">Games</button>
+            <button id="btn-apps" class="filter-btn">Apps</button>
+        </div>
+
         <div class="games-grid" id="games-container">
-            <div class="loading-text">Loading games from Play Store...</div>
+            <div class="loading-text">Loading from Play Store...</div>
         </div>
     </main>
 
@@ -344,9 +383,30 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT TO LOAD GAMES FROM JSON -->
+    <!-- JAVASCRIPT TO LOAD GAMES AND APPS FROM JSON -->
     <script>
+        // Global variables to store data and current view state
+        let allItems = [];
+        let currentFilter = 'game'; // default to loading games
+
         document.addEventListener("DOMContentLoaded", () => {
+            const btnGames = document.getElementById('btn-games');
+            const btnApps = document.getElementById('btn-apps');
+
+            // Button click listeners
+            btnGames.addEventListener('click', () => {
+                btnGames.classList.add('active');
+                btnApps.classList.remove('active');
+                currentFilter = 'game';
+                renderItems();
+            });
+
+            btnApps.addEventListener('click', () => {
+                btnApps.classList.add('active');
+                btnGames.classList.remove('active');
+                currentFilter = 'app';
+                renderItems();
+            });
             
             fetch('games.json?nocache=' + new Date().getTime())
                 .then(response => {
@@ -355,53 +415,68 @@
                     }
                     return response.json();
                 })
-                .then(games => {
-                    const container = document.getElementById('games-container');
-                    container.innerHTML = ''; 
-
-                    if (games.length === 0) {
-                        container.innerHTML = '<div class="loading-text">No games found yet.</div>';
-                        return;
-                    }
-
-                    games.forEach(game => {
-                        
-                        let screenshotsHtml = '';
-                        
-                        if (game.screenshots && Array.isArray(game.screenshots) && game.screenshots.length > 0) {
-                            screenshotsHtml = game.screenshots.map(imgUrl => 
-                                `<img src="${imgUrl}" alt="Screenshot of ${game.title}" class="screenshot" loading="lazy">`
-                            ).join('');
-                        }
-
-                        const card = `
-                            <div class="game-card">
-                                <div class="game-card-content">
-                                    <img src="${game.icon}" alt="${game.title} Logo" class="app-icon" loading="lazy">
-                                    
-                                    <h3>${game.title}</h3>
-                                    
-                                    <p class="app-description">${game.description || 'Enjoy this wonderful game by SavyChamp.'}</p>
-                                    
-                                    <div class="screenshots-container">
-                                        ${screenshotsHtml}
-                                    </div>
-                                </div>
-                                
-                                <a href="${game.url}" target="_blank" rel="noopener noreferrer" class="play-btn">
-                                    <i class="fa-brands fa-google-play"></i> Get it on Play Store
-                                </a>
-                            </div>
-                        `;
-                        container.innerHTML += card;
-                    });
+                .then(data => {
+                    allItems = data;
+                    renderItems();
                 })
                 .catch(error => {
-                    console.error('Error loading games:', error);
+                    console.error('Error loading data:', error);
                     document.getElementById('games-container').innerHTML = 
-                        '<div class="loading-text">Failed to load games data. Please check back later!</div>';
+                        '<div class="loading-text">Failed to load data. Please check back later!</div>';
                 });
         });
+
+        function renderItems() {
+            const container = document.getElementById('games-container');
+            container.innerHTML = ''; 
+
+            if (allItems.length === 0) {
+                container.innerHTML = '<div class="loading-text">No items found yet.</div>';
+                return;
+            }
+
+            // Filter the items. Default to 'game' if no type is set in JSON.
+            const filteredData = allItems.filter(item => {
+                const itemType = item.type || 'game';
+                return itemType === currentFilter;
+            });
+
+            if (filteredData.length === 0) {
+                container.innerHTML = `<div class="loading-text">No ${currentFilter}s found yet.</div>`;
+                return;
+            }
+
+            filteredData.forEach(game => {
+                let screenshotsHtml = '';
+                
+                if (game.screenshots && Array.isArray(game.screenshots) && game.screenshots.length > 0) {
+                    screenshotsHtml = game.screenshots.map(imgUrl => 
+                        `<img src="${imgUrl}" alt="Screenshot of ${game.title}" class="screenshot" loading="lazy">`
+                    ).join('');
+                }
+
+                const card = `
+                    <div class="game-card">
+                        <div class="game-card-content">
+                            <img src="${game.icon}" alt="${game.title} Logo" class="app-icon" loading="lazy">
+                            
+                            <h3>${game.title}</h3>
+                            
+                            <p class="app-description">${game.description || 'Enjoy this wonderful experience by SavyChamp.'}</p>
+                            
+                            <div class="screenshots-container">
+                                ${screenshotsHtml}
+                            </div>
+                        </div>
+                        
+                        <a href="${game.url}" target="_blank" rel="noopener noreferrer" class="play-btn">
+                            <i class="fa-brands fa-google-play"></i> Get it on Play Store
+                        </a>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        }
     </script>
 
 </body>

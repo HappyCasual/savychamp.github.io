@@ -156,14 +156,7 @@
             gap: 15px;
             margin-bottom: 15px;
             flex-shrink: 0; /* Keeps buttons fixed */
-            flex-wrap: nowrap; /* Forces buttons to stay on the same line */
-            overflow-x: auto; /* Allows swiping on tiny screens */
-            -ms-overflow-style: none; /* Hide scrollbar */
-            scrollbar-width: none; /* Hide scrollbar */
-        }
-
-        .filter-container::-webkit-scrollbar {
-            display: none; /* Hide scrollbar in Chrome/Safari */
+            flex-wrap: nowrap; /* Forces all buttons on the same row */
         }
 
         .filter-btn {
@@ -176,8 +169,7 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            white-space: nowrap; /* Prevents text inside from wrapping */
-            flex-shrink: 0; /* Prevents buttons from resizing/squishing */
+            white-space: nowrap; /* Prevents text inside the button from wrapping */
         }
 
         .filter-btn:hover {
@@ -442,6 +434,16 @@
                 margin-left: 0; 
             }
 
+            /* Adjust button sizing and gaps for mobile to ensure they stay on one line */
+            .filter-container {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
             .screenshot {
                 height: 150px; 
             }
@@ -590,7 +592,7 @@
             const btnCloseAll = document.getElementById('btn-close-all');
             
             if (activeCards.length > 0) {
-                btnCloseAll.style.display = 'block'; // Changed to block to match flex behavior perfectly
+                btnCloseAll.style.display = 'inline-block';
             } else {
                 btnCloseAll.style.display = 'none';
             }

@@ -1,4 +1,4 @@
-name: Update Jig Cards
+name: Update Arrows Paint
 
 on:
   workflow_dispatch:
@@ -22,13 +22,12 @@ jobs:
         run: npm install
 
       - name: Run Scraper
-        # Hardcode the App ID for this specific game here
-        run: node scraper.js "com.happycasualcompany.jiggytiles"
+        run: node scraper.js "com.levelsparkcompany.arrows.paint" "game"
 
       - name: Commit and Push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add games.json
-          git commit -m "Update Play Store data for Jig Cards" || exit 0
+          git commit -m "Update Play Store data for Arrows Paint" || exit 0
           git push

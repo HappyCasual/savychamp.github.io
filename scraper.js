@@ -1,8 +1,10 @@
+// File: scraper.js
 import gplay from 'google-play-scraper';
 import fs from 'fs';
 
-// Get the App ID passed from the GitHub Action input
+// Get the App ID and Type passed from the GitHub Action input
 const targetAppId = process.argv[2];
+const targetType = process.argv[3] || 'game'; 
 
 if (!targetAppId) {
     console.error('No App ID provided. Please provide an App ID as an argument.');
@@ -13,7 +15,7 @@ async function scrapeSingleGame() {
     try {
         let gamesData = [];
         
-        // 1. Read existing games.json so we don't overwrite other games
+        // Read existing games.json so we don't overwrite other items
         if (fs.existsSync('games.json')) {
             const rawData = fs.readFileSync('games.json', 'utf-8');
             if (rawData.trim() !== '') {
@@ -21,38 +23,36 @@ async function scrapeSingleGame() {
             }
         }
 
-        console.log(`Fetching data for: ${targetAppId}...`);
+        console.log(`Fetching data for: ${targetAppId} (Type: ${targetType})...`);
 
-        // 2. Fetch data from Play Store for ONLY this game
+        // Fetch data from Play Store
         const app = await gplay.app({ appId: targetAppId });
         
-        // Check if game already exists in games.json to preserve the "type" property
-        const existingIndex = gamesData.findIndex(game => game.id === targetAppId);
-        const existingType = existingIndex !== -1 && gamesData[existingIndex].type ? gamesData[existingIndex].type : 'game';
+        const existingIndex = gamesData.findIndex(item => item.id === targetAppId);
 
-        // 3. Format the new details
-        const newGameData = {
+        // Format the new details, ensuring we set the "type" property correctly
+        const newItemData = {
             id: targetAppId,
             title: app.title,
             icon: app.icon,   
             url: app.url,     
             developer: app.developer,
-            type: existingType,
+            type: targetType, 
             description: app.summary || 'Enjoy this wonderful experience by SavyChamp.',
             screenshots: Array.isArray(app.screenshots) ? app.screenshots : []
         };
         
         if (existingIndex !== -1) {
-            // Update existing game
-            gamesData[existingIndex] = newGameData;
+            // Update existing entry
+            gamesData[existingIndex] = newItemData;
             console.log(`Updated existing entry for: ${app.title}`);
         } else {
-            // Add as a brand new game
-            gamesData.push(newGameData);
+            // Add as a brand new entry
+            gamesData.push(newItemData);
             console.log(`Added new entry for: ${app.title}`);
         }
 
-        // 5. Save the merged data back to games.json
+        // Save the merged data back to games.json
         fs.writeFileSync('games.json', JSON.stringify(gamesData, null, 2));
         console.log('games.json has been successfully updated!');
         

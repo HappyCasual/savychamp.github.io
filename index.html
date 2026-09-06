@@ -156,6 +156,7 @@
             gap: 15px;
             margin-bottom: 15px;
             flex-shrink: 0; /* Keeps buttons fixed */
+            flex-wrap: wrap; /* Allows buttons to wrap safely on tiny screens */
         }
 
         .filter-btn {
@@ -179,6 +180,19 @@
             background-color: var(--accent-color);
             color: #ffffff;
             border-color: var(--accent-color);
+        }
+
+        /* Distinct styling for Close All button */
+        #btn-close-all {
+            display: none; /* Hidden by default */
+            background-color: #ef4444; /* Subtle Red to indicate closing */
+            color: white;
+            border-color: #ef4444;
+        }
+
+        #btn-close-all:hover {
+            background-color: #dc2626;
+            border-color: #dc2626;
         }
 
         /* =========================================
@@ -464,6 +478,7 @@
         <div class="filter-container">
             <button id="btn-games" class="filter-btn active">Games</button>
             <button id="btn-apps" class="filter-btn">Apps</button>
+            <button id="btn-close-all" class="filter-btn">Close All</button>
         </div>
 
         <!-- SEARCH BAR -->
@@ -497,6 +512,14 @@
             const btnGames = document.getElementById('btn-games');
             const btnApps = document.getElementById('btn-apps');
             const searchInput = document.getElementById('search-input');
+            const btnCloseAll = document.getElementById('btn-close-all');
+
+            // Close All click listener
+            btnCloseAll.addEventListener('click', () => {
+                const activeCards = document.querySelectorAll('.game-card.active');
+                activeCards.forEach(card => card.classList.remove('active'));
+                btnCloseAll.style.display = 'none'; // Hide button after closing
+            });
 
             // Search input listener
             searchInput.addEventListener('input', (e) => {
@@ -549,9 +572,28 @@
                 });
         });
 
+        // Function called when a game/app header is clicked to toggle its body
+        function toggleCard(headerElement) {
+            headerElement.parentElement.classList.toggle('active');
+            
+            // Check if any cards are currently active to show/hide the "Close All" button
+            const activeCards = document.querySelectorAll('.game-card.active');
+            const btnCloseAll = document.getElementById('btn-close-all');
+            
+            if (activeCards.length > 0) {
+                btnCloseAll.style.display = 'inline-block';
+            } else {
+                btnCloseAll.style.display = 'none';
+            }
+        }
+
         function renderItems() {
             const container = document.getElementById('games-container');
+            const btnCloseAll = document.getElementById('btn-close-all');
+            
+            // Reset state
             container.innerHTML = ''; 
+            btnCloseAll.style.display = 'none'; // Ensure Close All is hidden when refreshing the list
 
             if (allItems.length === 0) {
                 container.innerHTML = '<div class="loading-text">No items found yet.</div>';
@@ -591,7 +633,8 @@
                 const card = `
                     <div class="game-card">
                         
-                        <div class="card-header" onclick="this.parentElement.classList.toggle('active')">
+                        <!-- Updated onclick to call our new toggleCard function -->
+                        <div class="card-header" onclick="toggleCard(this)">
                             <img src="${game.icon}" alt="${game.title} Logo" class="app-icon" loading="lazy">
                             <div class="card-title-area">
                                 <h3>${game.title}</h3>

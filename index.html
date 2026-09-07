@@ -467,8 +467,9 @@
         <div class="logo-section">
             <img src="logo.png" alt="SavyChamp Logo">
             <div class="title-group">
-                <h1>SavyChamp Games</h1>
-                <span class="tagline">More Fun. Less Ads.</span>
+                <!-- Added IDs here to manipulate via JS easily -->
+                <h1 id="main-title">SavyChamp Games</h1>
+                <span id="main-tagline" class="tagline">More Fun. Less Ads.</span>
             </div>
         </div>
         
@@ -524,6 +525,10 @@
             const btnApps = document.getElementById('btn-apps');
             const searchInput = document.getElementById('search-input');
             const btnCloseAll = document.getElementById('btn-close-all');
+            
+            // New references for title and tagline
+            const mainTitle = document.getElementById('main-title');
+            const mainTagline = document.getElementById('main-tagline');
 
             // Close All click listener
             btnCloseAll.addEventListener('click', () => {
@@ -548,6 +553,10 @@
                 searchInput.value = '';
                 searchQuery = '';
                 searchInput.placeholder = 'Search in Games...';
+
+                // Change Title & Tagline for Games
+                mainTitle.textContent = 'SavyChamp Games';
+                mainTagline.textContent = 'More Fun. Less Ads.';
                 
                 renderItems();
             });
@@ -561,6 +570,10 @@
                 searchInput.value = '';
                 searchQuery = '';
                 searchInput.placeholder = 'Search in Apps...';
+
+                // Change Title & Tagline for Apps
+                mainTitle.textContent = 'SavyChamp Apps';
+                mainTagline.textContent = 'Zero Full Screen Ads';
                 
                 renderItems();
             });
